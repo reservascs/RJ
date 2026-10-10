@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Passeio — Brazil Xcursions</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+
+<style id="ajuste-rodape-final">
+  .site-footer { padding-top: 19px !important; padding-bottom: 0 !important; }
+  .site-footer .footer-grid {
+    grid-template-columns: minmax(0, .85fr) minmax(480px, 1.5fr) !important;
+    gap: 18px !important; align-items: start;
+  }
+  .site-footer .footer-logo { margin: 0 !important; line-height: 0 !important; }
+  .site-footer .logo-img { max-height: 42px !important; width: auto !important; }
+  .site-footer #footer-sobre { margin: 3px 0 0 !important; line-height: 1.35 !important; }
+  .site-footer h4 { margin: -16px 0 3px !important; line-height: 1.1 !important; font-size: 1.12em !important; }
+  #footer-contato-titulo { text-decoration: none !important; }
+  #footer-contato-titulo:hover { text-decoration: underline !important; }
+  .site-footer .footer-bottom span { font-size: 12px !important; font-weight: 400 !important; font-family: inherit !important; }
+  .site-footer #footer-endereco, .site-footer #footer-whatsapp, .site-footer #footer-email { font-size: 1.06em !important; }
+  .site-footer ul { margin: 0 !important; padding: 0 !important; line-height: 1.25 !important; }
+  .site-footer li { margin: 0 0 2px !important; padding: 0 !important; }
+  .site-footer .footer-social-right { display: flex; justify-content: flex-end; margin: 0 0 3px !important; line-height: 0 !important; }
+  .site-footer .footer-social-right img { max-height: 24px !important; width: auto !important; }
+  .site-footer .footer-bottom { margin: 3px 0 0 !important; padding: 3px 0 0 !important; line-height: 1.2 !important; }
+  #conteudo-pacote > .container { padding-bottom: 0 !important; margin-bottom: 0 !important; }
+  #conteudo-pacote .detalhe-grid { margin-bottom: 0 !important; }
+  #conteudo-pacote .section-alt { margin-bottom: 0 !important; padding-top: 20px !important; padding-bottom: 14px !important; }
+  #conteudo-pacote .section-alt .section-head { margin-bottom: 18px !important; }
+  @media (max-width: 760px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .site-footer .footer-social-right { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><a class="wa-topbar" href="https://wa.me/5521973688693" target="_blank" rel="noopener" id="topbar-whatsapp">✆ +55 21 97368-8693 (WhatsApp)</a></div>
+    <div class="topbar-right">
+      <a href="mailto:turismo@casasaoconrado.com" id="topbar-email">turismo@casasaoconrado.com</a>
+      <div class="lang-flags">
+        <button onclick="trocarIdioma('pt')" class="lang-flag" data-lang="pt" aria-label="Português"><img src="assets/flags/br.svg" alt="Português"></button>
+        <button onclick="trocarIdioma('en')" class="lang-flag" data-lang="en" aria-label="English"><img src="assets/flags/gb.svg" alt="English"></button>
+        <button onclick="trocarIdioma('es')" class="lang-flag" data-lang="es" aria-label="Español"><img src="assets/flags/es.svg" alt="Español"></button>
+        <button onclick="trocarIdioma('fr')" class="lang-flag" data-lang="fr" aria-label="Français"><img src="assets/flags/fr.svg" alt="Français"></button>
+        <button onclick="trocarIdioma('de')" class="lang-flag" data-lang="de" aria-label="Deutsch"><img src="assets/flags/de.svg" alt="Deutsch"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-wrap nav-wrap--solo container">
+    <div class="chip-group pacote-chipnav" id="pacote-nav"></div>
+  </div>
+</header>
+
+<div id="conteudo-pacote">
+  <!-- preenchido via JS -->
+</div>
+
+<template id="tpl-nao-encontrado">
+  <div class="container">
+    <div class="empty-state">
+      <div class="icon">🧭</div>
+      <h3 id="empty-titulo">Passeio não encontrado</h3>
+      <p id="empty-desc">O passeio que você procura não existe ou foi removido.</p>
+      <a href="catalogo.html" class="btn btn-primary" style="margin-top:20px;" id="empty-btn">Ver catálogo completo</a>
+    </div>
+  </div>
+</template>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid" style="grid-template-columns: .85fr 1.5fr; gap: 18px; align-items: start;">
+      <div>
+        <div class="footer-logo"><a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" target="_blank" rel="noopener"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></a></div>
+        <p id="footer-sobre">Sua base no Rio de Janeiro para viver experiências autênticas: praias, trilhas, aventura e cultura carioca, tudo em um só lugar.</p>
+      </div>
+      <div>
+        <div class="social-row footer-social-right">
+          <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/insta.png" alt="Instagram"></a>
+          <a href="https://www.facebook.com/casasaoconradorj" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/face.png" alt="Facebook"></a>
+        </div>
+        <h4 style="margin:0 0 3px"><a id="footer-contato-titulo" href="https://www.casasaoconrado.com/contact-pt" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Contato</a></h4>
+        <ul>
+          <li id="footer-endereco">Rua Coronel Ribeiro Gomes, 328<br>São Conrado, Rio de Janeiro - RJ</li>
+          <li id="footer-whatsapp">+55 21 97368-8693 (WhatsApp)</li>
+          <li id="footer-email">turismo@casasaoconrado.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="margin-top: 3px; padding-top: 3px; padding-bottom: 0;">
+      <span id="footer-direitos">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
+      <span id="footer-cnpj">Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="fecharLightbox()">
+  <button class="lightbox-fechar" aria-label="Fechar">✕</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior" onclick="lightboxAnt(event)">‹</button>
+  <button class="lightbox-nav lightbox-next" aria-label="Próxima foto" onclick="lightboxProx(event)">›</button>
+  <figure onclick="event.stopPropagation()">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-video-wrap" id="lightbox-video-wrap">
+      <iframe id="lightbox-video" src="" title="Vídeo do passeio" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:none;"></iframe>
+      <video id="lightbox-video-local" controls style="display:none;"></video>
+    </div>
+    <figcaption id="lightbox-contador" class="lightbox-contador"></figcaption>
+  </figure>
+</div>
+
+<script src="data.js"></script>
+<script src="traducoes.js"></script>
+<script src="cart.js"></script>
+<script src="render.js"></script>
+<script src="main.js"></script>
+<script>
+// ============================================================
+// LIGHTBOX - funções
+// ============================================================
+var lbSlides = [];
+var lbIndex = 0;
+var lightboxSlides = [];
+
+function isVideoLocal(url) {
+  return !!url && !/youtube\.com|youtu\.be/.test(url);
+}
+
+function atualizarLightbox() {
+  var slide = lbSlides[lbIndex];
+  var isVideo = slide.tipo === 'video';
+  var isLocal = isVideo && isVideoLocal(slide.src);
+  document.getElementById('lightbox').classList.toggle('modo-video', isVideo);
+  var iframeEl = document.getElementById('lightbox-video');
+  var videoEl = document.getElementById('lightbox-video-local');
+  iframeEl.style.display = (isVideo && !isLocal) ? 'block' : 'none';
+  videoEl.style.display = (isVideo && isLocal) ? 'block' : 'none';
+  iframeEl.src = (isVideo && !isLocal) ? (slide.src + (slide.src.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1') : '';
+  if (isVideo && isLocal) { videoEl.src = slide.src; videoEl.play().catch(function () {}); } else { videoEl.pause(); videoEl.removeAttribute('src'); }
+  document.getElementById('lightbox-img').src = isVideo ? '' : slide.src;
+  document.getElementById('lightbox-contador').textContent = lbSlides.length > 1 ? (lbIndex + 1) + ' / ' + lbSlides.length : '';
+}
+
+function abrirLightbox(slides, index) {
+  lbSlides = slides;
+  lbIndex = index;
+  atualizarLightbox();
+  document.getElementById('lightbox').classList.add('aberto');
+  document.body.style.overflow = 'hidden';
+}
+
+function lightboxProx(e) {
+  e.stopPropagation();
+  lbIndex = (lbIndex + 1) % lbSlides.length;
+  atualizarLightbox();
+}
+
+function lightboxAnt(e) {
+  e.stopPropagation();
+  lbIndex = (lbIndex - 1 + lbSlides.length) % lbSlides.length;
+  atualizarLightbox();
+}
+
+function fecharLightbox() {
+  document.getElementById('lightbox').classList.remove('aberto', 'modo-video');
+  document.getElementById('lightbox-video').src = '';
+  var videoEl = document.getElementById('lightbox-video-local');
+  videoEl.pause();
+  videoEl.removeAttribute('src');
+  document.body.style.overflow = '';
+}
+
+// ============================================================
+// VÍDEO PLAYER
+// ============================================================
+function bxYtId(u){var m=(u||'').match(/(?:embed\/|shorts\/|youtu\.be\/|v=)([A-Za-z0-9_-]{6,})/);return m?m[1]:'';}
+function bxEhYoutube(u){return /youtube\.com|youtu\.be/i.test(u||'');}
+function ehEmbedVideo(url) {
+  return /youtube\.com|youtu\.be|odysee\.com|tiktok\.com|vimeo\.com|player\./i.test(url || '');
+}
+
+function bxMontarPlayer(el){
+  var tipo=el.getAttribute('data-tipo'), rot=el.getAttribute('data-rotulo')||'';
+  function capa(bg){var c=document.createElement('div');c.className='bxp-capa';c.setAttribute('role','button');c.setAttribute('tabindex','0');c.setAttribute('aria-label','Reproduzir vídeo'+(rot?' — '+rot:''));if(bg)c.style.backgroundImage='url("'+bg+'")';c.innerHTML='<div class="bxp-play"></div>';c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}});return c;}
+  if(tipo==='local'){
+    var v=document.createElement('video');v.src=el.getAttribute('data-src');v.controls=true;v.preload='metadata';v.playsInline=true;var pz=el.getAttribute('data-poster');if(pz)v.poster=pz;el.appendChild(v);
+    var c=capa(pz);c.onclick=function(){c.remove();v.play();};el.appendChild(c);
+  }else if(tipo==='youtube'){
+    var id=el.getAttribute('data-yt');var c=capa(el.getAttribute('data-poster')||('https://img.youtube.com/vi/'+id+'/hqdefault.jpg'));
+    c.onclick=function(){var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';f.title=rot;f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.allowFullscreen=true;el.insertBefore(f,c);c.remove();};
+    el.appendChild(c);
+  }else{
+    var f=document.createElement('iframe');f.src=el.getAttribute('data-src');f.title=rot;f.loading='lazy';f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');f.allowFullscreen=true;el.appendChild(f);
+  }
+}
+
+// ============================================================
+// TROCAR IDIOMA
+// ============================================================
+function trocarIdioma(lang) {
+  definirIdioma(lang);
+  carregarPacote();
+  atualizarBandeirasIdioma(lang);
+}
+
+// Mostra apenas as bandeiras dos idiomas que NÃO são o idioma atual
+function atualizarBandeirasIdioma(lang) {
+  document.querySelectorAll('.lang-flag').forEach(function(btn) {
+    btn.style.display = btn.dataset.lang === lang ? 'none' : '';
+  });
+}
+
+// ============================================================
+// ATUALIZAR INTERFACE FIXA
+// ============================================================
+function atualizarInterfaceFixa() {
+  var lang = obterIdioma();
+
+  document.getElementById('topbar-whatsapp').textContent = tInterface('whatsapp');
+  document.getElementById('topbar-email').textContent = tInterface('email');
+
+  var pnav = document.getElementById('pacote-nav');
+  if (pnav) {
+    var itens = ['<a class="chip" href="catalogo.html"><img class="chip-ic" src="assets/ic-todas.png" alt="">' + tInterface('menu.passeios') + '</a>'];
+    if (typeof CATEGORIAS !== 'undefined') {
+      var _catsSite = {};
+      (typeof pacotesDoSite === 'function' ? pacotesDoSite() : []).forEach(function(p){ _catsSite[p.categoria] = true; });
+      Object.keys(CATEGORIAS).forEach(function(key){
+        if (!_catsSite[key]) return;
+        var cat = CATEGORIAS[key];
+        var lb = cat.label; lb = (lb && lb[obterIdioma()]) || (lb && lb.pt) || key;
+        var ic = cat.img ? '<img class="chip-ic" src="' + cat.img + '" alt="">' : (cat.icon + ' ');
+        itens.push('<a class="chip" href="catalogo.html?categoria=' + encodeURIComponent(key) + '">' + ic + lb + '</a>');
+      });
+    }
+    pnav.innerHTML = itens.join('');
+  }
+
+  document.getElementById('footer-sobre').textContent = tInterface('footer.sobre');
+  document.getElementById('footer-contato-titulo').textContent = tInterface('footer.contato');
+  document.getElementById('footer-endereco').innerHTML = tInterface('footer.endereco');
+  document.getElementById('footer-whatsapp').textContent = '+55 21 97368-8693 (WhatsApp)';
+  document.getElementById('footer-email').textContent = 'turismo@casasaoconrado.com';
+  document.getElementById('footer-direitos').textContent = tInterface('footer.direitos');
+  document.getElementById('footer-cnpj').textContent = tInterface('footer.cnpj').replace(/^Protótipo de e-commerce\s*[—-]?\s*/i, '');
+
+  document.documentElement.dir = IDIOMAS[lang].dir || 'ltr';
+  document.documentElement.lang = lang;
+}
+
+// ============================================================
+// CARREGAR PACOTE
+// ============================================================
+function carregarPacote() {
+  var id = new URLSearchParams(window.location.search).get('id');
+  var pacoteOriginal = getPacoteById(id);
+  var root = document.getElementById('conteudo-pacote');
+
+  if (!pacoteOriginal || !pacoteEhDoSite(pacoteOriginal)) {
+    root.innerHTML = document.getElementById('tpl-nao-encontrado').innerHTML;
+    document.getElementById('empty-titulo').textContent = tInterface('empty.titulo');
+    document.getElementById('empty-desc').textContent = tInterface('empty.desc');
+    document.getElementById('empty-btn').textContent = tInterface('empty.verCatalogo');
+    return;
+  }
+
+  var pacote = getPacoteTraduzido(id);
+
+  document.title = pacote.titulo + ' — Brazil Xcursions';
+  document.getElementById('page-title').textContent = pacote.titulo + ' — Brazil Xcursions';
+
+  function shuffleArray(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  var imagensEmbaralhadas = shuffleArray((pacote.imagens || []).filter(function (s) { return s && String(s).trim(); }));
+  var imgs = imagensEmbaralhadas.slice(0, 5);
+  var extraCount = imagensEmbaralhadas.length - 5;
+  lightboxSlides = imagensEmbaralhadas.map(function (src) { return { tipo: 'foto', src: src }; });
+  var _tt = pacote.titulo;
+  var galeriaHTML = '';
+  if (imagensEmbaralhadas.length > 0) {
+    var slots = imgs.slice();
+    while (slots.length < 5) slots.push(null);
+    galeriaHTML = '<div class="galeria g5">' + slots.map(function (src, i) {
+      if (!src) return i === 0 ? '<div class="principal"></div>' : '<div></div>';
+      var oc = 'onclick="abrirLightbox(lightboxSlides, ' + Math.min(i, imagensEmbaralhadas.length - 1) + ')"';
+      if (i === 0) return '<img class="principal" src="' + src + '" alt="' + _tt + '" ' + oc + '>';
+      if (i === 4 && extraCount > 0) return '<div class="ver-mais" data-count="+' + extraCount + ' fotos" ' + oc + '><img src="' + src + '" alt="' + _tt + '"></div>';
+      return '<img src="' + src + '" alt="' + _tt + '" ' + oc + '>';
+    }).join('') + '</div>';
+  }
+
+  // Traduções
+  var sobreLabel = tInterface('pacote.sobre');
+  var inclusoLabel = tInterface('pacote.incluso');
+  var naoInclusoLabel = tInterface('pacote.naoIncluso');
+  var videosLabel = tInterface('pacote.videos');
+  var reservarLabel = tInterface('pacote.reservar');
+  var verExpedicoesLabel = tInterface('pacote.verExpedicoes');
+  var whatsappLabel = tInterface('pacote.whatsapp');
+  var pagamentoSeguroLabel = tInterface('pacote.pagamentoSeguro');
+  var guiasCredenciadosLabel = tInterface('pacote.guiasCredenciados');
+  var expedicoesLabel = tInterface('pacote.expedicoes');
+  var expedicoesSubLabel = tInterface('pacote.expedicoesSubtitulo');
+  var verReservarLabel = tInterface('pacote.verReservar');
+  var participantesLabel = tInterface('pacote.participantes');
+  var subtotalLabel = tInterface('pacote.subtotal');
+  var adicionarCarrinhoLabel = tInterface('pacote.adicionarCarrinho');
+  var irCarrinhoLabel = tInterface('pacote.irCarrinho');
+  // >>> LINK DE PAGAMENTO (edite aqui) <<<
+  var LINK_PAGAMENTO = 'https://brazilxcursions.com/passeio/city-tour';
+  var reservarLabel = ({pt:'Reservar agora',en:'Book now',es:'Reservar ahora',fr:'Réserver',de:'Jetzt buchen'})[obterIdioma()] || 'Reservar agora';
+  var sobConsultaLabel = tInterface('pacote.sobConsulta');
+  var expedicaoGuiaLabel = tInterface('pacote.expedicaoGuia');
+  var expedicaoDescLabel = tInterface('pacote.expedicaoDesc');
+  var voceTambemPodeGostarLabel = tInterface('pacote.voceTambemPodeGostar');
+  var combineSuaViagemLabel = tInterface('pacote.combineSuaViagem');
+
+  var inclusosHTML = pacote.inclusos && pacote.inclusos.length
+    ? '<h2>' + inclusoLabel + '</h2><ul class="inclusos-list">' + pacote.inclusos.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'
+    : '';
+
+  var naoInclusosHTML = (pacote.naoInclusos && pacote.naoInclusos.length)
+    ? '<h2>' + naoInclusoLabel + '</h2><ul class="inclusos-list nao-inclusos">' + pacote.naoInclusos.map(function (i) { return '<li>' + i + '</li>'; }).join('') + '</ul>'
+    : '';
+
+  var expedicoesHTML = '';
+
+  var inicioLabel = tInterface('breadcrumb.inicio');
+  var passeiosLabel = tInterface('breadcrumb.passeios');
+
+  var html =
+    '<div class="container">' +
+      '<div class="pacote-header">' +
+        '<div>' +
+          '<span class="pacote-cat">' + (pacote.categoriaImg ? '<img class="pacote-cat-ic" src="' + pacote.categoriaImg + '" alt="" aria-hidden="true">' : pacote.categoriaIcon + ' ') + pacote.categoriaLabel + '</span>' +
+          '<h1>' + pacote.titulo + '</h1>' +
+          '<p class="tagline">' + pacote.tagline + '</p>' +
+        '</div>' +
+        '<a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="pacote-logo" target="_blank" rel="noopener"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado"></a>' +
+      '</div>' +
+
+      galeriaHTML +
+
+      '<div class="detalhe-grid">' +
+        '<div class="detalhe-conteudo">' +
+          '<h2>' + sobreLabel + '</h2>' +
+          pacote.descricao.split('\n\n').map(function (par) { return '<p>' + par + '</p>'; }).join('') +
+          inclusosHTML +
+          naoInclusosHTML +
+          (pacote.creditoFoto ? '<p style="font-size:12.5px;color:var(--cor-texto-suave);margin-top:24px;">' + pacote.creditoFoto + '</p>' : '') +
+          ((pacote.videos && pacote.videos.length)
+            ? '<h2 style="margin-top:36px;">' + videosLabel + '</h2>' + pacote.videos.map(function (u) {
+                return bxEhYoutube(u)
+                  ? '<div class="bxplayer" data-tipo="youtube" data-yt="' + bxYtId(u) + '" data-poster="' + (imgs[0] || '') + '" data-rotulo="' + pacote.titulo + '"></div>'
+                  : (ehEmbedVideo(u)
+                      ? '<div class="bxplayer" data-tipo="embed" data-src="' + u + '" data-rotulo="' + pacote.titulo + '"></div>'
+                      : '<div class="bxplayer" data-tipo="local" data-src="' + u + '" data-poster="' + (imgs[0] || '') + '" data-rotulo="' + pacote.titulo + '"></div>');
+              }).join('')
+            : '') +
+        '</div>' +
+
+        '<div class="booking-card">' +
+              '<div class="price" id="booking-price">' + (pacote.id === 'helicoptero' ? '<span style="font-size:0.55em;font-weight:400;display:block;letter-spacing:0.01em;">a partir de</span>' : '') + pacote.precoDisplay + '<small>' + tInterface('pacote.porPessoa') + '</small></div>' +
+              '<a href="' + (pacote.linkPagamento || LINK_PAGAMENTO) + '" class="btn btn-primary btn-full">' + reservarLabel + '</a>' +
+              '<div class="trust">' + pagamentoSeguroLabel + '</div>' +
+            '</div>' +
+      '</div>' +
+    '</div>';
+
+  root.innerHTML = html;
+
+  document.querySelectorAll('.bxplayer').forEach(bxMontarPlayer);
+
+
+  var relacionados = pacotesDoSite().filter(function (p) { return p.categoria === pacote.categoria && p.id !== pacote.id; }).slice(0, 3);
+  if (relacionados.length) {
+    var sec = document.createElement('section');
+    sec.className = 'section-alt';
+    sec.innerHTML = '<div class="container"><div class="section-head" style="margin-bottom:28px;"><span class="eyebrow">' + combineSuaViagemLabel + '</span><h2>' + voceTambemPodeGostarLabel + '</h2></div><div class="pacotes-grid" id="relacionados-grid"></div></div>';
+    root.appendChild(sec);
+
+    var relacionadosTraduzidos = relacionados.map(function(p) { return getPacoteTraduzido(p.id); });
+    if (typeof renderPacoteGrid === 'function') {
+      renderPacoteGrid('relacionados-grid', relacionadosTraduzidos);
+    }
+  }
+}
+
+// ============================================================
+// INICIALIZAÇÃO
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+  var salvo = localStorage.getItem('idioma');
+  if (salvo && IDIOMAS[salvo]) {
+    idiomaAtual = salvo;
+    document.documentElement.lang = salvo;
+    document.documentElement.dir = IDIOMAS[salvo].dir || 'ltr';
+  }
+
+  atualizarInterfaceFixa();
+  carregarPacote();
+  atualizarBandeirasIdioma(obterIdioma());
+});
+
+document.addEventListener('idiomaAlterado', function(e) {
+  atualizarInterfaceFixa();
+  carregarPacote();
+  atualizarBandeirasIdioma(e.detail.idioma);
+});
+</script>
+</body>
+</html>
