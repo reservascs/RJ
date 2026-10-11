@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Contato — Brazil Xcursions</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Página Contato: textos +2px (menos o título) */
+  .eyebrow{font-size:16px}
+  #contact-intro{font-size:20px}
+  #form-title,#where-title{font-size:21px}
+  .form-field label{font-size:17px}
+  .form-field input,.form-field textarea{font-size:18.5px}
+  #address,#whatsapp-label,#email-label{font-size:18.5px}
+  .btn{font-size:17px}
+  .btn-voltar{display:inline-flex;align-items:center;gap:6px;color:var(--cor-texto-suave);text-decoration:none;font-size:18px;font-weight:600;padding:18px 0 4px}
+  .btn-voltar:hover{color:var(--cor-primaria)}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><a class="wa-topbar" href="https://wa.me/5521973688693" target="_blank" rel="noopener" id="topbar-whatsapp">✆ +55 21 97368-8693 (WhatsApp)</a></div>
+    <div class="topbar-right">
+      <a href="mailto:turismo@casasaoconrado.com" id="topbar-email">turismo@casasaoconrado.com</a>
+      <div class="lang-flags">
+        <button onclick="trocarIdioma('pt')" class="lang-flag" data-lang="pt" aria-label="Português"><img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x" alt="Português"></button>
+        <button onclick="trocarIdioma('en')" class="lang-flag" data-lang="en" aria-label="English"><img src="https://flagcdn.com/24x18/gb.png" srcset="https://flagcdn.com/48x36/gb.png 2x" alt="English"></button>
+        <button onclick="trocarIdioma('es')" class="lang-flag" data-lang="es" aria-label="Español"><img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x" alt="Español"></button>
+        <button onclick="trocarIdioma('fr')" class="lang-flag" data-lang="fr" aria-label="Français"><img src="https://flagcdn.com/24x18/fr.png" srcset="https://flagcdn.com/48x36/fr.png 2x" alt="Français"></button>
+        <button onclick="trocarIdioma('de')" class="lang-flag" data-lang="de" aria-label="Deutsch"><img src="https://flagcdn.com/24x18/de.png" srcset="https://flagcdn.com/48x36/de.png 2x" alt="Deutsch"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-wrap nav-wrap--solo container">
+    <a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="logo" target="_blank" rel="noopener">
+      <img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img">
+    </a>
+  </div>
+</header>
+
+<div class="container"><a href="index.html" class="btn-voltar" id="link-voltar">← Voltar</a></div>
+
+<section style="padding-top:8px;">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" id="contact-eyebrow">Fale com a gente</span>
+      <h2 id="contact-title">Estamos aqui para ajudar</h2>
+      <p id="contact-intro">Dúvidas sobre um passeio, sua reserva ou sugestões de roteiro? Escolha o canal que preferir.</p>
+    </div>
+
+    <div class="detalhe-grid">
+      <div class="form-card">
+        <h3 id="form-title">✉️ Envie uma mensagem</h3>
+        <form id="contato-form">
+          <input type="hidden" name="access_key" value="COLE_SUA_ACCESS_KEY_WEB3FORMS_AQUI">
+          <input type="hidden" name="to" value="reservas@casasaoconrado.com">
+          <input type="hidden" name="subject" value="Novo contato — site RJ">
+          <input type="hidden" name="from_name" value="Site RJ (Brazil Xcursions)">
+          <div class="form-row">
+            <div class="form-field"><label id="label-name">Nome</label><input id="field-name" name="name" type="text" required></div>
+            <div class="form-field"><label id="label-email">E-mail</label><input id="field-email" name="email" type="email" required></div>
+          </div>
+          <div class="form-row single">
+            <div class="form-field"><label id="label-subject">Assunto</label><input id="field-subject" name="assunto" type="text" placeholder="Ex: Dúvida sobre o Trekking Vale do Pati"></div>
+          </div>
+          <div class="form-row single">
+            <div class="form-field"><label id="label-message">Mensagem</label><textarea id="field-message" name="message" rows="5" style="width:100%;padding:12px 14px;border-radius:8px;border:1px solid var(--cor-borda);font-family:inherit;font-size:18.5px;" required></textarea></div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="form-submit">Enviar mensagem</button>
+        </form>
+      </div>
+
+      <div>
+        <div class="booking-card" style="position:static;">
+          <h3 style="margin-bottom:16px;" id="where-title">📍 Onde estamos</h3>
+          <p style="margin-bottom:16px;font-size:18.5px;" id="address">Rua Coronel Ribeiro Gomes, 328<br>São Conrado, Rio de Janeiro - RJ<br>CEP 22610-240</p>
+          <p style="margin-bottom:10px;font-size:18.5px;"><strong id="whatsapp-label">WhatsApp:</strong> +55 21 97368-8693</p>
+          <p style="margin-bottom:10px;font-size:18.5px;"><strong id="email-label">E-mail:</strong> turismo@casasaoconrado.com</p>
+          <a href="https://wa.me/5521973688693" target="_blank" rel="noopener" class="btn btn-primary btn-full" style="margin-top:16px;" id="whatsapp-button">💬 Conversar no WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span id="footer-rights">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
+      <span id="footer-cnpj">Protótipo de e-commerce — Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
+    </div>
+  </div>
+</footer>
+
+<script src="cart.js"></script>
+<script src="main.js"></script>
+<script>
+const CONTATO_TEXTOS = {
+  pt: { title:'Contato — Brazil Xcursions', voltar:'← Voltar', eyebrow:'Fale com a gente', heading:'Estamos aqui para ajudar', intro:'Dúvidas sobre um passeio, sua reserva ou sugestões de roteiro? Escolha o canal que preferir.', form:'✉️ Envie uma mensagem', name:'Nome', email:'E-mail', subject:'Assunto', subjectPlaceholder:'Ex: Dúvida sobre o Trekking Vale do Pati', message:'Mensagem', send:'Enviar mensagem', where:'📍 Onde estamos', whatsapp:'WhatsApp:', emailLabel:'E-mail:', whatsappButton:'💬 Conversar no WhatsApp', sent:'Mensagem enviada! Responderemos em breve. 🌴', rights:'© 2026 Brazil Xcursions. Todos os direitos reservados.' },
+  en: { title:'Contact — Brazil Xcursions', voltar:'← Back', eyebrow:'Get in touch', heading:'We are here to help', intro:'Questions about a tour, your booking, or itinerary suggestions? Choose the channel you prefer.', form:'✉️ Send us a message', name:'Name', email:'Email', subject:'Subject', subjectPlaceholder:'E.g.: Question about the Vale do Pati Trek', message:'Message', send:'Send message', where:'📍 Where we are', whatsapp:'WhatsApp:', emailLabel:'Email:', whatsappButton:'💬 Chat on WhatsApp', sent:'Message sent! We will reply shortly. 🌴', rights:'© 2026 Brazil Xcursions. All rights reserved.' },
+  es: { title:'Contacto — Brazil Xcursions', voltar:'← Volver', eyebrow:'Hable con nosotros', heading:'Estamos aquí para ayudar', intro:'¿Dudas sobre un paseo, su reserva o sugerencias de itinerario? Elija el canal que prefiera.', form:'✉️ Envíenos un mensaje', name:'Nombre', email:'Correo electrónico', subject:'Asunto', subjectPlaceholder:'Ej.: Duda sobre el trekking del Vale do Pati', message:'Mensaje', send:'Enviar mensaje', where:'📍 Dónde estamos', whatsapp:'WhatsApp:', emailLabel:'Correo electrónico:', whatsappButton:'💬 Hablar por WhatsApp', sent:'¡Mensaje enviado! Responderemos pronto. 🌴', rights:'© 2026 Brazil Xcursions. Todos los derechos reservados.' },
+  fr: { title:'Contact — Brazil Xcursions', voltar:'← Retour', eyebrow:'Contactez-nous', heading:'Nous sommes là pour vous aider', intro:'Une question sur une excursion, votre réservation ou une suggestion d’itinéraire ? Choisissez le canal qui vous convient.', form:'✉️ Envoyez-nous un message', name:'Nom', email:'E-mail', subject:'Objet', subjectPlaceholder:'Ex. : Question sur le trekking du Vale do Pati', message:'Message', send:'Envoyer le message', where:'📍 Où nous trouver', whatsapp:'WhatsApp :', emailLabel:'E-mail :', whatsappButton:'💬 Nous contacter sur WhatsApp', sent:'Message envoyé ! Nous vous répondrons bientôt. 🌴', rights:'© 2026 Brazil Xcursions. Tous droits réservés.' },
+  de: { title:'Kontakt — Brazil Xcursions', voltar:'← Zurück', eyebrow:'Kontaktieren Sie uns', heading:'Wir helfen Ihnen gerne', intro:'Fragen zu einem Ausflug, Ihrer Buchung oder Vorschläge für eine Reiseroute? Wählen Sie den Kontaktweg Ihrer Wahl.', form:'✉️ Nachricht senden', name:'Name', email:'E-Mail', subject:'Betreff', subjectPlaceholder:'Z. B.: Frage zur Trekkingtour im Vale do Pati', message:'Nachricht', send:'Nachricht senden', where:'📍 Wo Sie uns finden', whatsapp:'WhatsApp:', emailLabel:'E-Mail:', whatsappButton:'💬 Über WhatsApp chatten', sent:'Nachricht gesendet! Wir antworten Ihnen bald. 🌴', rights:'© 2026 Brazil Xcursions. Alle Rechte vorbehalten.' }
+};
+function setText(id, value) { document.getElementById(id).textContent = value; }
+function trocarIdioma(lang) {
+  const t = CONTATO_TEXTOS[lang] || CONTATO_TEXTOS.pt;
+  localStorage.setItem('idioma', lang);
+  document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+  document.getElementById('page-title').textContent = t.title;
+  setText('link-voltar',t.voltar); setText('contact-eyebrow',t.eyebrow); setText('contact-title',t.heading); setText('contact-intro',t.intro); setText('form-title',t.form); setText('label-name',t.name); setText('label-email',t.email); setText('label-subject',t.subject); setText('label-message',t.message); setText('form-submit',t.send); setText('where-title',t.where); setText('whatsapp-label',t.whatsapp); setText('email-label',t.emailLabel); setText('whatsapp-button',t.whatsappButton); setText('footer-rights',t.rights);
+  document.getElementById('field-subject').placeholder = t.subjectPlaceholder;
+  document.querySelectorAll('.lang-flag').forEach(b => b.style.display = b.dataset.lang === lang ? 'none' : '');
+  document.getElementById('contato-form').dataset.sentMessage = t.sent;
+}
+const idiomaSalvo = localStorage.getItem('idioma');
+trocarIdioma(CONTATO_TEXTOS[idiomaSalvo] ? idiomaSalvo : 'pt');
+document.getElementById('contato-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('form-submit');
+  const textoOriginal = btn.textContent;
+  btn.disabled = true; btn.textContent = '...';
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) { showToast(form.dataset.sentMessage); form.reset(); }
+    else showToast('Erro ao enviar. Tente pelo WhatsApp.');
+  })
+  .catch(() => showToast('Erro ao enviar. Tente pelo WhatsApp.'))
+  .finally(() => { btn.disabled = false; btn.textContent = textoOriginal; });
+});
+</script>
+</body>
+</html>
