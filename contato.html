@@ -58,9 +58,8 @@
     <div class="detalhe-grid">
       <div class="form-card">
         <h3 id="form-title">✉️ Envie uma mensagem</h3>
-        <form id="contato-form">
-          <input type="hidden" name="access_key" value="COLE_SUA_ACCESS_KEY_WEB3FORMS_AQUI">
-          <input type="hidden" name="to" value="reservas@casasaoconrado.com">
+        <form id="contato-form" action="https://api.web3forms.com/submit" method="POST" target="wf-iframe">
+          <input type="hidden" name="access_key" value="0f0b2274-7cb1-4544-ab7c-e4ba6734a283">
           <input type="hidden" name="subject" value="Novo contato — site RJ">
           <input type="hidden" name="from_name" value="Site RJ (Brazil Xcursions)">
           <div class="form-row">
@@ -89,6 +88,8 @@
     </div>
   </div>
 </section>
+
+<iframe name="wf-iframe" style="display:none" id="wf-iframe"></iframe>
 
 <footer class="site-footer">
   <div class="container">
@@ -122,25 +123,25 @@ function trocarIdioma(lang) {
 }
 const idiomaSalvo = localStorage.getItem('idioma');
 trocarIdioma(CONTATO_TEXTOS[idiomaSalvo] ? idiomaSalvo : 'pt');
-document.getElementById('contato-form').addEventListener('submit', function (e) {
-  e.preventDefault();
-  const form = e.target;
+(function () {
+  const form = document.getElementById('contato-form');
   const btn = document.getElementById('form-submit');
+  const iframe = document.getElementById('wf-iframe');
   const textoOriginal = btn.textContent;
-  btn.disabled = true; btn.textContent = '...';
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-    body: JSON.stringify(Object.fromEntries(new FormData(form)))
-  })
-  .then(r => r.json())
-  .then(data => {
-    if (data.success) { showToast(form.dataset.sentMessage); form.reset(); }
-    else showToast('Erro ao enviar. Tente pelo WhatsApp.');
-  })
-  .catch(() => showToast('Erro ao enviar. Tente pelo WhatsApp.'))
-  .finally(() => { btn.disabled = false; btn.textContent = textoOriginal; });
-});
+  let enviando = false;
+  form.addEventListener('submit', function () {
+    // não dá preventDefault: o form envia de verdade pro Web3Forms via o iframe oculto (target="wf-iframe")
+    enviando = true;
+    btn.disabled = true; btn.textContent = '...';
+  });
+  iframe.addEventListener('load', function () {
+    if (!enviando) return; // ignora o load inicial (about:blank)
+    enviando = false;
+    showToast(form.dataset.sentMessage);
+    form.reset();
+    btn.disabled = false; btn.textContent = textoOriginal;
+  });
+})();
 </script>
 </body>
 </html>
