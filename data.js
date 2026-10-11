@@ -49,7 +49,7 @@ const IDIOMAS = {
 const TRADUCOES_INTERFACE = {
   'pt': {
     whatsapp: '✆ +55 21 97368-8693 (WhatsApp)',
-    email: 'turismo@casasaoconrado.com',
+    email: 'turismocsc@casasaoconrado.com',
     menu: {
       inicio: 'Início',
       passeios: 'Passeios',
@@ -216,7 +216,7 @@ const TRADUCOES_INTERFACE = {
   },
   'en': {
     whatsapp: '✆ +55 21 97368-8693 (WhatsApp)',
-    email: 'turismo@casasaoconrado.com',
+    email: 'turismocsc@casasaoconrado.com',
     menu: {
       inicio: 'Home',
       passeios: 'Tours',
@@ -383,7 +383,7 @@ const TRADUCOES_INTERFACE = {
   },
   'es': {
     whatsapp: '✆ +55 21 97368-8693 (WhatsApp)',
-    email: 'turismo@casasaoconrado.com',
+    email: 'turismocsc@casasaoconrado.com',
     menu: {
       inicio: 'Inicio',
       passeios: 'Excursiones',
@@ -550,7 +550,7 @@ const TRADUCOES_INTERFACE = {
   },
   'fr': {
     whatsapp: '✆ +55 21 97368-8693 (WhatsApp)',
-    email: 'turismo@casasaoconrado.com',
+    email: 'turismocsc@casasaoconrado.com',
     menu: {
       inicio: 'Accueil',
       passeios: 'Visites',
@@ -717,7 +717,7 @@ const TRADUCOES_INTERFACE = {
   },
   'de': {
     whatsapp: '✆ +55 21 97368-8693 (WhatsApp)',
-    email: 'turismo@casasaoconrado.com',
+    email: 'turismocsc@casasaoconrado.com',
     menu: {
       inicio: 'Startseite',
       passeios: 'Touren',
