@@ -1888,7 +1888,9 @@ const PACOTES = [
       "barco",
       "guia"
     ],
-    "imagens": [],
+    "imagens": [
+      "assets/passeios/pantanal-carioca-ilha-da-gigoia/ilha_da_gigoia_by_diego_baravelli.jpg"
+    ],
     "naoInclusos": [
       "refeições"
     ],

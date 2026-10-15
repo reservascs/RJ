@@ -96,7 +96,13 @@
   .barra:not([hidden]){animation:barraEntra 320ms var(--ease-drawer) both}
   @keyframes barraEntra{from{transform:translateY(100%)}to{transform:translateY(0)}}
 
-  .log{white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:12px;background:var(--verde-esc);color:#d9ead9;border-radius:10px;padding:12px 14px;max-height:220px;overflow:auto;line-height:1.5}
+  .log{white-space:pre-wrap;font-family:ui-monospace,Consolas,monospace;font-size:17px;background:var(--verde-esc);color:#d9ead9;border-radius:10px;padding:16px 18px;max-height:320px;overflow:auto;line-height:1.6}
+  .log .ok{display:block;margin:6px 0;padding:14px 16px;border-radius:10px;background:#2e8b57;color:#fff;font-family:system-ui,Segoe UI,sans-serif;font-size:30px;font-weight:800;letter-spacing:.02em;line-height:1.25}
+  .log .ok small{display:block;margin-top:6px;font-size:15px;font-weight:500;opacity:.92}
+  .log .erro{display:block;margin:6px 0;padding:12px 14px;border-radius:10px;background:#a11;color:#fff;font-size:20px;font-weight:700}
+  #p-salvo{font-size:22px;font-weight:800}
+  #p-salvo.ok{color:#1f7a45}
+  #p-salvo.sujo{font-size:15px;font-weight:600;color:var(--suave)}
   .vazio{background:#fff;border:1px dashed #d6ccb6;border-radius:14px;padding:36px 28px;text-align:center;color:var(--suave);line-height:1.6}
   .vazio h2{color:var(--txt);font-size:18px;margin:0 0 8px;font-family:'Fraunces',Georgia,serif;font-weight:600}
   @media(prefers-reduced-motion:reduce){ button:active:not(:disabled){transform:none} .barra:not([hidden]){animation:none} }
@@ -223,8 +229,12 @@ function slugify(t){return (t||'').toLowerCase().normalize('NFD').replace(/[\u03
 function ytId(u){ if(!u) return ''; u=u.trim(); if(/^[A-Za-z0-9_-]{11}$/.test(u)) return u; const m=u.match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([A-Za-z0-9_-]{11})/); return m?m[1]:''; }
 function ehYT(u){return /youtu/.test(u||'');}
 function stamp(){return new Date().toISOString().replace(/[-:T]/g,'').slice(0,14);}
-const pLog=m=>{const el=$('#p-log');el.hidden=false;el.textContent+=m+"\n";el.scrollTop=el.scrollHeight;};
-function pSuja(g){ pGrupos.add(g); sujoP=true; $('#p-salvo').textContent='alterações não salvas'; }
+const pLog=m=>{const el=$('#p-log');el.hidden=false;
+  if(m.startsWith('OK')){ const d=document.createElement('span'); d.className='ok'; const i=m.indexOf('('); d.append('✅ PASSEIO SALVO!'); if(i>0){ const s=document.createElement('small'); s.textContent=m.slice(i)+' — publique com push no GitHub Desktop.'; d.appendChild(s); } el.appendChild(d); }
+  else if(m.startsWith('ERRO')){ const d=document.createElement('span'); d.className='erro'; d.textContent='❌ '+m; el.appendChild(d); }
+  else el.appendChild(document.createTextNode(m+"\n"));
+  el.scrollTop=el.scrollHeight;};
+function pSuja(g){ pGrupos.add(g); sujoP=true; const s=$('#p-salvo'); s.className='sujo'; s.textContent='alterações não salvas'; }
 function avisarPequenas(){ if(!fotosPequenas.length) return; alert('⚠ Foto pequena — vai aparecer sem nitidez:\n\n'+fotosPequenas.join('\n')+'\n\nSe tiver, use uma versão maior.'); fotosPequenas=[]; }
 async function lerTexto(d,nome){ const f=await (await d.getFileHandle(nome)).getFile(); return await f.text(); }
 async function gravar(d,nome,dado){ const fh=await d.getFileHandle(nome,{create:true}); const w=await fh.createWritable(); await w.write(dado); await w.close(); }
@@ -510,9 +520,10 @@ $('#p-salvar').onclick=async()=>{
     await gravar(dir,'data.js',js);
     pLog('OK — data.js salvo (backup: '+bak+'). Publique com push no GitHub Desktop.');
     sujoP=false; pAtual=id;
-    await carregar(); const lg=$('#p-log').textContent; pAbrir(id); $('#p-log').textContent=lg; $('#p-log').hidden=false;
+    await carregar(); const lgHtml=$('#p-log').innerHTML; pAbrir(id); $('#p-log').innerHTML=lgHtml; $('#p-log').hidden=false;
     if(rotaAtual==='novo'){ rotaAtual='editar'; history.replaceState(null,'','#editar'); document.querySelectorAll('#abas a').forEach(a=>a.classList.toggle('ativo',a.getAttribute('href')==='#editar')); $('#p-card-busca').hidden=false; $('#p-sel').value=id; }
-    $('#p-salvo').textContent='✅ salvo';
+    $('#p-salvo').className='ok'; $('#p-salvo').textContent='✅ SALVO!';
+    $('#p-log').scrollIntoView({behavior:'smooth',block:'center'});
   }catch(e){ pLog('ERRO: '+e.message); }
   $('#p-salvar').disabled=false;
 };
