@@ -1869,6 +1869,45 @@ const PACOTES = [
     "inclusos": ["Transporte ida e volta a Manaus", "Taxa de entrada", "Seguro de vida", "Transfer entre atrativos", "Carros privativos compartilhados", "Guia de turismo", "Kit de primeiros socorros", "Hospedagem em pousada", "Café da manhã e almoço nos atrativos"],
     "imagens": ["TOURS/AM/am4.jpg", "TOURS/AM/am6.jpg", "TOURS/AM/am1.jpg", "TOURS/AM/am9.jpg", "TOURS/AM/am3.jpg", "TOURS/AM/am5.jpg", "TOURS/AM/am11.jpg", "TOURS/AM/am12.jpg", "TOURS/AM/am8.jpg", "TOURS/AM/am2.jpg", "TOURS/AM/am7.jpg", "TOURS/AM/am10.jpg", "TOURS/AM/am13.jpg", "TOURS/AM/am14.jpg"],
     "video": null
+  },
+
+  {
+    "id": "pantanal-carioca-ilha-da-gigoia",
+    "linkPagamento": "",
+    "uf": "RJ",
+    "videos": [
+      "assets/passeios/pantanal-carioca-ilha-da-gigoia/pantanal-carioca-ilha-da-gigoia-video.mp4"
+    ],
+    "titulo": "Pantanal Carioca - Ilha da Gigóia",
+    "categoria": "praia/ilha",
+    "tagline": "#pantanalcarioca",
+    "descricao": "",
+    "preco": "R$ 70,00",
+    "duracao": "2 horas",
+    "inclusos": [
+      "barco",
+      "guia"
+    ],
+    "imagens": [],
+    "naoInclusos": [
+      "refeições"
+    ],
+    "disponibilidade": {
+      "dias": [
+        "seg",
+        "ter",
+        "qua",
+        "qui",
+        "sex",
+        "sab",
+        "dom"
+      ],
+      "vagas": 4,
+      "bloqueios": [
+        "2026-12-31",
+        "2027-01-01"
+      ]
+    }
   }
 ];
 
