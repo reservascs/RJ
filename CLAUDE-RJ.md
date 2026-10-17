@@ -70,9 +70,31 @@ Título serifa (Fraunces), corpo sans (Inter). **Mobile-first.** Alta definiçã
 
 - Entender o servidor do parceiro: o pipeline de fotos (`FOTOS-NOVAS`, `datajs_merge.py`) vai no pacote entregue ao admin de lá ou fica só local?
 - Definir a rota/proxy Cloudflare pras páginas de passeios.
+- **Vídeo no admin (17/10/2026): testar o `admin.html` v3** com o HEVC de 69 MB (passeio `pantanal-carioca-ilha-da-gigoia`). Detalhes na seção 9.
 
 ---
 
 ## 8. Preferências do dono (Stan)
 
 Respostas curtas e diretas. Trocar só o que foi pedido. Validar um problema por vez. Publicar sem terminal. Registrar ações em `claude/CONTEXTO-PROJETO.md`.
+
+---
+
+## 9. Vídeo no admin — situação (17/10/2026)
+
+**Problema:** vídeo de celular em H.265 (HEVC) sobe pelo admin sem converter e no site toca só o áudio (o Chrome não decodifica HEVC). A conversão tem que ser automática no admin, sem o dono converter antes.
+
+**Como funciona (admin.html do RJ):** converte no navegador com ffmpeg.wasm (H.264, até 1280px, crf 28, AAC) e grava `assets/passeios/<id>/<id>-video.mp4`. Detecta o codec lendo o arquivo (`codecVideo`). Se a conversão falhar e o vídeo for HEVC, **recusa o upload** (nunca publica vídeo só com áudio). H.264 de até 24 MB sobe direto, sem reconverter.
+
+**Causas encontradas:**
+1. ffmpeg.wasm 0.11 + core multi-thread exige `SharedArrayBuffer` (COOP/COEP); o GitHub Pages não permite configurar esses headers → a conversão falhava sempre.
+2. Trocar só o core para `core-st` com a biblioteca 0.11 não funciona: dá `Cannot call unknown function proxy_main`. As versões não combinam.
+3. unpkg falhou com `Failed to fetch` no navegador do dono; jsdelivr funciona.
+
+**Correção atual (admin.html v3):** ffmpeg.wasm **0.10.1 + core 0.10.0** (single-thread, não precisa de SharedArrayBuffer nem de isolamento). Biblioteca e core vêm do jsdelivr, com unpkg de reserva. O alerta de erro mostra a URL e o motivo exatos. O `coi-serviceworker.js` ficou dispensável (pode ficar; não atrapalha).
+
+**Pendente:** testar a v3 com o HEVC de 69 MB. Esperado: "convertendo vídeo… X%" por alguns minutos; saída ~10–25 MB. Se falhar, anotar aqui a mensagem exata do alerta. Limite provável da versão 0.10: arquivos acima de ~150 MB podem estourar a memória do navegador.
+
+**Teste no admin:** abrir com F5 normal (Ctrl+F5 ignora o service worker). Depois do push, esperar ~1 min o GitHub Pages atualizar.
+
+**Fora do RJ:** `upload-video.php` (conversão no servidor com ffmpeg) foi feito para o BX, que tem banco e login; **não está ligado ao RJ**. Só vale para o RJ se o servidor do parceiro tiver PHP com `exec()` e ffmpeg (rodar `diag-servidor.php` para saber).
