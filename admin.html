@@ -280,14 +280,19 @@ async function codecVideo(file){
 }
 let _ff=null;
 async function comprimirVideo(file,st){
-  if(typeof SharedArrayBuffer==='undefined') throw new Error('este site não permite o conversor do navegador (falta SharedArrayBuffer)');
-  if(!_ff){ if(!window.FFmpeg) throw new Error('lib não carregou'); const {createFFmpeg}=window.FFmpeg;
-    _ff=createFFmpeg({log:false,corePath:'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js'}); await _ff.load(); }
+  if(!window.FFmpeg) throw new Error('biblioteca de conversão não carregou');
+  if(!_ff){
+    // com isolamento usa o core multi-thread; sem isolamento usa o single-thread (mais lento, mas funciona)
+    const mt=typeof SharedArrayBuffer!=='undefined' && self.crossOriginIsolated;
+    const ff=window.FFmpeg.createFFmpeg({log:false,corePath:'https://unpkg.com/@ffmpeg/'+(mt?'core':'core-st')+'@0.11.0/dist/ffmpeg-core.js'});
+    await ff.load(); _ff=ff;                 // só guarda se carregou
+  }
   const {fetchFile}=window.FFmpeg;
-  _ff.setProgress(({ratio})=>{ if(ratio>=0&&ratio<=1) $(st).textContent='otimizando vídeo… '+Math.round(ratio*100)+'%'; });
+  _ff.setProgress(({ratio})=>{ if(ratio>=0&&ratio<=1) $(st).textContent='convertendo vídeo… '+Math.round(ratio*100)+'%'; });
   _ff.FS('writeFile','in.mp4',await fetchFile(file));
-  await _ff.run('-i','in.mp4','-vf','scale=trunc(min(1280\\,iw)/2)*2:-2','-c:v','libx264','-crf','28','-preset','veryfast','-movflags','+faststart','-c:a','aac','-b:a','96k','out.mp4');
+  await _ff.run('-i','in.mp4','-vf','scale=trunc(min(1280\\,iw)/2)*2:-2','-c:v','libx264','-pix_fmt','yuv420p','-crf','28','-preset','veryfast','-movflags','+faststart','-c:a','aac','-b:a','96k','out.mp4');
   const d=_ff.FS('readFile','out.mp4'); try{_ff.FS('unlink','in.mp4');_ff.FS('unlink','out.mp4');}catch(_){}
+  if(!d.length) throw new Error('a conversão gerou um arquivo vazio');
   return new Blob([d.buffer],{type:'video/mp4'});
 }
 
@@ -461,7 +466,7 @@ $('#p-vid-input').onchange=async e=>{ const f=e.target.files[0]; e.target.value=
   const cod=await codecVideo(f);
   st.textContent='otimizando vídeo ('+(f.size/1048576).toFixed(1)+' MB)…';
   let blob=f, otimizou=false, motivo='';
-  try{ blob=await comprimirVideo(f,'#p-vid-status'); otimizou=true; }catch(err){ motivo=(err&&err.message)||String(err); }
+  try{ if(cod==='h264' && f.size<=24*1048576){ otimizou=true; } else { blob=await comprimirVideo(f,'#p-vid-status'); otimizou=true; } }catch(err){ motivo=(err&&err.message)||String(err); }
   if(!otimizou && cod==='hevc'){
     st.style.color='#a11'; st.textContent='❌ vídeo recusado: formato H.265 (HEVC)';
     alert('❌ Vídeo NÃO adicionado.\n\nEle está em H.265 (HEVC): no site aparece só o áudio, sem imagem. E o conversor do navegador não funcionou ('+motivo+').\n\nConverta no PC e suba o arquivo convertido:\nffmpeg -i original.mp4 -c:v libx264 -pix_fmt yuv420p -crf 24 -preset slow -vf scale=-2:1080 -c:a aac -b:a 128k -movflags +faststart saida.mp4\n\n(ou HandBrake, preset "Fast 1080p30").');
