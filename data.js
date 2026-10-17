@@ -1881,7 +1881,7 @@ const PACOTES = [
     "titulo": "Pantanal Carioca - Ilha da Gigóia",
     "categoria": "praia/ilha",
     "tagline": "Fauna urbana no coração da Barra da Tijuca",
-    "descricao": "Cerca de 2 horas atráves de canais de lagoa de jacarápaguá",
+    "descricao": "Cerca de 2 horas atráves de canais de lagoa de Jacarepaguá",
     "preco": "R$ 70,00",
     "duracao": "2 horas",
     "inclusos": [
