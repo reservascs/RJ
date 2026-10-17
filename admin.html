@@ -284,8 +284,20 @@ async function comprimirVideo(file,st){
   if(!_ff){
     // com isolamento usa o core multi-thread; sem isolamento usa o single-thread (mais lento, mas funciona)
     const mt=typeof SharedArrayBuffer!=='undefined' && self.crossOriginIsolated;
-    const ff=window.FFmpeg.createFFmpeg({log:false,corePath:'https://unpkg.com/@ffmpeg/'+(mt?'core':'core-st')+'@0.11.0/dist/ffmpeg-core.js'});
-    await ff.load(); _ff=ff;                 // só guarda se carregou
+    const pac=mt?'core':'core-st';
+    const bases=['https://unpkg.com/@ffmpeg/'+pac+'@0.11.0/dist','https://cdn.jsdelivr.net/npm/@ffmpeg/'+pac+'@0.11.0/dist'];
+    const erros=[];
+    for(const base of bases){
+      try{
+        for(const arq of ['ffmpeg-core.js','ffmpeg-core.wasm']){       // confere se os arquivos baixam antes de carregar
+          const r=await fetch(base+'/'+arq,{method:'HEAD'});
+          if(!r.ok) throw new Error(arq+' → HTTP '+r.status);
+        }
+        const ff=window.FFmpeg.createFFmpeg({log:false,corePath:base+'/ffmpeg-core.js'});
+        await ff.load(); _ff=ff; break;     // só guarda se carregou
+      }catch(e){ erros.push(base.split('/')[2]+' ('+pac+'): '+((e&&e.message)||e)); }
+    }
+    if(!_ff) throw new Error('não consegui baixar o conversor — '+erros.join(' | '));
   }
   const {fetchFile}=window.FFmpeg;
   _ff.setProgress(({ratio})=>{ if(ratio>=0&&ratio<=1) $(st).textContent='convertendo vídeo… '+Math.round(ratio*100)+'%'; });
