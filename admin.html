@@ -209,6 +209,21 @@
   <span class="status" id="p-salvo"></span>
 </div>
 
+<script>
+// Liga o isolamento de origem (necessário ao conversor de vídeo) só nesta página, via service worker.
+(function(){
+  if(window.crossOriginIsolated||!window.isSecureContext||!navigator.serviceWorker) return;
+  if(sessionStorage.getItem('coiTentou')) return;
+  navigator.serviceWorker.register('coi-serviceworker.js',{scope:'admin.html'}).then(function(reg){
+    sessionStorage.setItem('coiTentou','1');
+    if(reg.active&&!navigator.serviceWorker.controller){ location.reload(); return; }
+    reg.addEventListener('updatefound',function(){
+      var w=reg.installing;
+      if(w) w.addEventListener('statechange',function(){ if(w.state==='activated') location.reload(); });
+    });
+  }).catch(function(){});
+})();
+</script>
 <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
 <script>
 const $=s=>document.querySelector(s);
@@ -251,8 +266,21 @@ async function otimizar(file,perfil){
   while(b.size/1024>perfil.kb && q>QMIN){ q-=0.06; b=await new Promise(r=>c.toBlob(r,'image/jpeg',q)); }
   return b;
 }
+// Detecta o codec do vídeo lendo o início e o fim do arquivo (onde fica o "moov" do mp4).
+async function codecVideo(file){
+  const N=4*1048576, partes=[file.slice(0,N)];
+  if(file.size>N) partes.push(file.slice(Math.max(N,file.size-N)));
+  let achou='';
+  for(const p of partes){
+    const t=new TextDecoder('latin1').decode(new Uint8Array(await p.arrayBuffer()));
+    if(/hvc1|hev1/.test(t)) return 'hevc';
+    if(/avc1/.test(t)) achou='h264';
+  }
+  return achou||'?';
+}
 let _ff=null;
 async function comprimirVideo(file,st){
+  if(typeof SharedArrayBuffer==='undefined') throw new Error('este site não permite o conversor do navegador (falta SharedArrayBuffer)');
   if(!_ff){ if(!window.FFmpeg) throw new Error('lib não carregou'); const {createFFmpeg}=window.FFmpeg;
     _ff=createFFmpeg({log:false,corePath:'https://unpkg.com/@ffmpeg/core@0.11.0/dist/ffmpeg-core.js'}); await _ff.load(); }
   const {fetchFile}=window.FFmpeg;
@@ -429,11 +457,21 @@ function pRenderVids(){
 $('#p-yt').onkeydown=e=>{ if(e.key!=='Enter') return; const y=ytId(e.target.value); if(!y) return alert('Link do YouTube inválido.'); pVids.push({tipo:'yt',url:'https://www.youtube.com/embed/'+y}); e.target.value=''; pRenderVids(); pSuja('videos'); };
 $('#p-btn-vid').onclick=()=>$('#p-vid-input').click();
 $('#p-vid-input').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(!f) return;
-  $('#p-vid-status').textContent='otimizando vídeo ('+(f.size/1048576).toFixed(1)+' MB)…';
-  let blob=f; try{ blob=await comprimirVideo(f,'#p-vid-status'); }catch(err){ $('#p-vid-status').textContent='⚠ não otimizei — usando original'; }
+  const st=$('#p-vid-status'); st.style.color='';
+  const cod=await codecVideo(f);
+  st.textContent='otimizando vídeo ('+(f.size/1048576).toFixed(1)+' MB)…';
+  let blob=f, otimizou=false, motivo='';
+  try{ blob=await comprimirVideo(f,'#p-vid-status'); otimizou=true; }catch(err){ motivo=(err&&err.message)||String(err); }
+  if(!otimizou && cod==='hevc'){
+    st.style.color='#a11'; st.textContent='❌ vídeo recusado: formato H.265 (HEVC)';
+    alert('❌ Vídeo NÃO adicionado.\n\nEle está em H.265 (HEVC): no site aparece só o áudio, sem imagem. E o conversor do navegador não funcionou ('+motivo+').\n\nConverta no PC e suba o arquivo convertido:\nffmpeg -i original.mp4 -c:v libx264 -pix_fmt yuv420p -crf 24 -preset slow -vf scale=-2:1080 -c:a aac -b:a 128k -movflags +faststart saida.mp4\n\n(ou HandBrake, preset "Fast 1080p30").');
+    return;
+  }
   const mb=blob.size/1048576; pVids=pVids.filter(v=>v.tipo!=='novo');
-  pVids.push({tipo:'novo',blob,blobUrl:URL.createObjectURL(blob),info:mb.toFixed(1)+' MB'+(mb>24?' ⚠ acima de 24 MB':'')});
-  $('#p-vid-status').textContent=''; pRenderVids(); pSuja('videos'); };
+  pVids.push({tipo:'novo',blob,blobUrl:URL.createObjectURL(blob),info:mb.toFixed(1)+' MB'+(mb>24?' ⚠ acima de 24 MB':'')+(otimizou?' ✓ otimizado':' ⚠ original ('+(cod==='h264'?'H.264':'codec não identificado')+')')});
+  if(otimizou) st.textContent='';
+  else { st.style.color='#8a6200'; st.textContent='⚠ não otimizado ('+motivo+') — usando o original, que é '+(cod==='h264'?'H.264 (deve tocar)':'de codec não identificado: teste no site'); }
+  pRenderVids(); pSuja('videos'); };
 
 // ---------- datas ----------
 function pChips(){
