@@ -192,7 +192,7 @@ function bxMontarPlayer(el){
   var tipo=el.getAttribute('data-tipo'), rot=el.getAttribute('data-rotulo')||'';
   function capa(bg){var c=document.createElement('div');c.className='bxp-capa';c.setAttribute('role','button');c.setAttribute('tabindex','0');c.setAttribute('aria-label','Reproduzir vídeo'+(rot?' — '+rot:''));if(bg)c.style.backgroundImage='url("'+bg+'")';c.innerHTML='<div class="bxp-play"></div>';c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();c.click();}});return c;}
   if(tipo==='local'){
-    var v=document.createElement('video');v.src=el.getAttribute('data-src');v.controls=true;v.preload='metadata';v.playsInline=true;var pz=el.getAttribute('data-poster');if(pz)v.poster=pz;el.appendChild(v);
+    var v=document.createElement('video');v.src=el.getAttribute('data-src');v.controls=true;v.preload='metadata';v.playsInline=true;v.addEventListener('loadedmetadata',function(){if(v.videoHeight>v.videoWidth){el.style.cssText+=';aspect-ratio:'+v.videoWidth+'/'+v.videoHeight+';width:100%;max-width:360px;max-height:80vh;margin-left:auto;margin-right:auto';v.style.cssText+=';width:100%;height:100%;object-fit:contain';}});var pz=el.getAttribute('data-poster');if(pz)v.poster=pz;el.appendChild(v);
     var c=capa(pz);c.onclick=function(){c.remove();v.play();};el.appendChild(c);
   }else if(tipo==='youtube'){
     var id=el.getAttribute('data-yt');var c=capa(el.getAttribute('data-poster')||('https://img.youtube.com/vi/'+id+'/hqdefault.jpg'));
