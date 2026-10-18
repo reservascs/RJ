@@ -1875,7 +1875,9 @@ const PACOTES = [
     "id": "pantanal-carioca-ilha-da-gigoia",
     "linkPagamento": "",
     "uf": "RJ",
-    "videos": [],
+    "videos": [
+      "assets/passeios/pantanal-carioca-ilha-da-gigoia/pantanal-carioca-ilha-da-gigoia-video.mp4"
+    ],
     "titulo": "Pantanal Carioca - Ilha da Gigóia",
     "categoria": "praia/ilha",
     "tagline": "Fauna urbana no coração da Barra da Tijuca",
