@@ -44,6 +44,14 @@
     .site-footer .footer-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
     .site-footer .footer-social-right { justify-content: flex-start; }
   }
+
+  .srv-card-home{display:flex;flex-direction:column;background:linear-gradient(160deg,#1f4d3a 0%,#0d3b2e 100%);color:#fff;border-radius:20px;overflow:hidden;text-decoration:none;box-shadow:0 6px 22px rgba(13,59,46,.18);transition:transform .2s,box-shadow .2s;}
+  .srv-card-home:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(13,59,46,.28);}
+  .srv-card-home svg{display:block;width:100%;height:auto;}
+  .srv-card-home .sch-txt{padding:18px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1;}
+  .srv-card-home h3{font-family:var(--fonte-titulo,serif);font-size:28px;line-height:1.1;margin:0;color:#fff;font-weight:600;}
+  .srv-card-home p{margin:0;font-size:15px;line-height:1.45;color:rgba(255,255,255,.86);}
+  .srv-card-home .sch-cta{margin-top:auto;padding-top:10px;font-weight:600;font-size:14px;color:#e8c98a;letter-spacing:.02em;}
 </style>
 </head>
 <body>
@@ -239,6 +247,42 @@ function montarChips() {
   });
 }
 
+
+var SERVICOS_CARD = {
+  pt:{t:'Serviços',s:'Mais comodidade para você e a sua família na sua estadia no Rio',c:'Ver serviços →'},
+  en:{t:'Services',s:'More comfort for you and your family during your stay in Rio',c:'See services →'},
+  es:{t:'Servicios',s:'Más comodidad para ti y tu familia durante tu estadía en Río',c:'Ver servicios →'},
+  fr:{t:'Services',s:'Plus de confort pour vous et votre famille pendant votre séjour à Rio',c:'Voir les services →'},
+  de:{t:'Services',s:'Mehr Komfort für Sie und Ihre Familie während Ihres Aufenthalts in Rio',c:'Services ansehen →'}
+};
+var SERVICOS_ARTE = '<svg viewBox="0 0 400 230" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'
+ +'<defs><linearGradient id="shc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d9a0"/><stop offset="1" stop-color="#c69a4e"/></linearGradient></defs>'
+ +'<rect width="400" height="230" fill="url(#shc)"/>'
+ +'<circle cx="290" cy="82" r="44" fill="#fff4d6" opacity=".9"/>'
+ +'<path d="M0 150 L60 110 L95 128 L140 84 L175 118 L215 100 L260 140 L320 112 L400 150 V230 H0Z" fill="#2f6b52" opacity=".75"/>'
+ +'<path d="M0 175 Q50 140 100 165 T210 160 Q260 130 300 160 T400 165 V230 H0Z" fill="#1f4d3a"/>'
+ +'<path d="M0 200 Q60 182 120 198 T240 196 T400 200 V230 H0Z" fill="#0d3b2e"/>'
+ +'<g fill="none" stroke="#f6f2e9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">'
+ +'<g transform="translate(46 168)"><path d="M0 22 V10 Q0 4 6 4 H34 L44 -6 H72 L82 4 H88 Q94 4 94 10 V22"/><circle cx="22" cy="24" r="7" fill="#0d3b2e"/><circle cx="72" cy="24" r="7" fill="#0d3b2e"/></g>'
+ +'<g transform="translate(206 160)"><circle cx="16" cy="38" r="13"/><circle cx="76" cy="38" r="13"/><path d="M16 38 L36 10 H58 L76 38 M36 10 L46 38 H16 M58 10 L52 0 H66"/></g>'
+ +'<g transform="translate(332 150)"><rect x="0" y="14" width="40" height="30" rx="5" fill="#0d3b2e"/><path d="M13 14 V8 Q13 4 17 4 H23 Q27 4 27 8 V14 M0 28 H40"/></g>'
+ +'</g></svg>';
+
+function inserirCardServicos() {
+  var grid = document.getElementById('catalogo-grid');
+  if (!grid) return;
+  var antigo = grid.querySelector('.srv-card-home');
+  if (antigo) antigo.remove();
+  var lang = localStorage.getItem('idioma') || 'pt';
+  var T = SERVICOS_CARD[lang] || SERVICOS_CARD.pt;
+  var a = document.createElement('a');
+  a.className = 'srv-card-home';
+  a.href = 'servicos.html';
+  a.innerHTML = SERVICOS_ARTE + '<div class="sch-txt"><h3>' + T.t + '</h3><p>' + T.s + '</p><span class="sch-cta">' + T.c + '</span></div>';
+  var filhos = grid.children;
+  if (filhos.length > 2) grid.insertBefore(a, filhos[2]); else grid.appendChild(a);
+}
+
 function aplicarFiltros() {
   var lista = getListaBase();
   if (estado.categoria) {
@@ -274,6 +318,7 @@ function aplicarFiltros() {
   var listaParaRenderizar = lista.map(function(p) { return getPacoteTraduzido(p.id); });
   if (typeof renderPacoteGrid === 'function') {
     renderPacoteGrid('catalogo-grid', listaParaRenderizar);
+    inserirCardServicos();
   }
   var count = listaParaRenderizar.length;
   var resultEl = document.getElementById('resultado-count');
