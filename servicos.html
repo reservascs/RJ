@@ -94,7 +94,7 @@
 <header class="site-header">
   <div class="nav-wrap container">
     <a href="index.html" class="logo">
-      <img src="logo.svg" alt="Brazil Xcursions" class="logo-img">
+      <img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img">
     </a>
     <nav class="main-nav">
       <a href="index.html" id="nav-inicio">Início</a>
@@ -105,7 +105,6 @@
       <a href="contato.html" id="nav-contato">Contato</a>
     </nav>
     <div class="header-actions">
-      <a href="carrinho.html" class="cart-link" id="nav-carrinho">Carrinho <span class="cart-badge">0</span></a>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     </div>
   </div>
@@ -195,7 +194,7 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-logo"><img src="logo.svg" alt="Brazil Xcursions" class="logo-img"></div>
+        <div class="footer-logo"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></div>
         <p id="footer-sobre">Sua base no Rio de Janeiro para viver experiências autênticas: praias, trilhas, aventura e cultura carioca, tudo em um só lugar.</p>
         <div class="social-row">
           <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener">📷</a>
@@ -339,8 +338,6 @@ function atualizarPaginaServicos() {
   set('nav-servicos', T.nav);
   set('nav-blog', getTexto('menu.blog'));
   set('nav-contato', getTexto('menu.contato'));
-  document.getElementById('nav-carrinho').innerHTML = getTexto('carrinho.menu') + ' <span class="cart-badge">0</span>';
-  if (typeof updateCartBadge === 'function') updateCartBadge();
 
   set('hero-titulo', T.hero);
   var C = CARDS[lang] || CARDS.pt;
