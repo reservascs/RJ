@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Serviços — Brazil Xcursions</title>
+<meta name="description" id="meta-desc" content="Aluguel de scooters e bikes e transfers de carro e van no Rio de Janeiro.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="style.css">
+<style>
+@media(min-width:721px){.hero-rj .hero-content{max-width:1100px;}.hero-rj .hero-content p{max-width:100%;white-space:nowrap;}}
+.srv{padding:22px 0 50px;background:#fff;}
+.srv-tabs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:26px;}
+.srv-tab{padding:9px 20px;border-radius:999px;border:1px solid var(--cor-borda);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--cor-texto-suave);text-decoration:none;background:#fff;transition:all .2s;}
+.srv-tab:hover{background:#fdeeb0;border-color:#f4d86a;color:#1b1b1b;}
+.srv-card{max-width:760px;margin:0 auto 34px;background:#fbf4e1;border-radius:28px;padding:38px 34px 34px;position:relative;overflow:hidden;scroll-margin-top:90px;color:#1b1b1b;}
+.srv-card::before{content:"";position:absolute;top:-70px;left:-70px;width:170px;height:170px;border-radius:50%;background:#f8e7a0;opacity:.7;}
+.srv-card>*{position:relative;}
+.srv-titulo{text-align:center;font-family:var(--fonte-titulo);font-style:italic;font-weight:600;font-size:clamp(30px,5vw,46px);line-height:1.05;margin:0 0 18px;color:#1b1b1b;}
+.srv-titulo strong{font-family:var(--fonte-corpo);font-style:normal;font-weight:800;font-size:1.18em;letter-spacing:-.02em;}
+.srv-simples{text-align:center;font-size:18px;margin:0 0 26px;}
+.srv-passos{display:flex;align-items:flex-start;justify-content:center;gap:10px;margin-bottom:34px;}
+.srv-passo{flex:1;text-align:center;max-width:200px;}
+.srv-circ{width:104px;height:104px;border-radius:50%;background:#fbe9a4;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;}
+.srv-circ svg{width:52px;height:52px;}
+.srv-passo p{font-size:15px;line-height:1.45;margin:0;}
+.srv-sublinhado{display:block;width:70%;height:3px;border-radius:3px;background:#f2cf4a;margin:8px auto 0;}
+.srv-seta{color:#f2cf4a;font-size:28px;margin-top:34px;}
+.srv-atende{text-align:center;margin-bottom:34px;}
+.srv-marca{display:inline-flex;align-items:center;gap:8px;background:#fbe9a4;padding:6px 26px;border-radius:6px;font-size:19px;margin-bottom:12px;}
+.srv-bairros{font-weight:800;font-size:20px;line-height:1.3;margin:0 0 4px;}
+.srv-entrega{font-size:15.5px;margin:0;}
+.srv-baixo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;}
+.srv-promo-col{display:flex;flex-direction:column;justify-content:space-between;gap:10px;}
+.srv-promo{background:#fbe9a4;border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;transform:rotate(-3deg);}
+.srv-promo-top{font-weight:700;font-size:17px;}
+.srv-promo-preco{font-weight:800;font-size:clamp(28px,4.2vw,40px);line-height:1.05;}
+.srv-promo-sub{font-size:15px;}
+.srv-scooter{width:100%;height:auto;display:block;border-radius:14px;}
+.srv-valores{background:#fffdf6;border:2px solid #f4d86a;border-radius:22px;padding:20px 20px 16px;}
+.srv-valores h3{font-family:var(--fonte-corpo);font-weight:800;font-size:26px;margin:0 0 14px;color:#1b1b1b;}
+.srv-valores ul{list-style:none;margin:0 0 12px;padding:0;}
+.srv-valores li{display:flex;align-items:center;gap:12px;padding:9px 0;font-size:20px;font-weight:700;}
+.srv-valores li svg{width:38px;height:26px;flex:0 0 auto;}
+.srv-valores .d{flex:1;}
+.srv-valores .tr{font-weight:400;}
+.srv-valores .v{min-width:78px;text-align:right;}
+.srv-full{background:#fbe9a4;border-radius:10px;padding:12px 14px;font-size:18px;display:flex;flex-direction:column;gap:2px;}
+.srv-full b{font-size:26px;font-weight:800;padding-left:20px;}
+.srv-cta{text-align:center;margin-top:28px;}
+.srv-card-simples{text-align:center;}
+.srv-ico{font-size:44px;margin-bottom:6px;}
+.srv-card-simples h2{font-family:var(--fonte-titulo);font-style:italic;font-size:32px;margin:0 0 10px;color:#1b1b1b;}
+.srv-card-simples p{font-size:17px;max-width:520px;margin:0 auto 18px;}
+.srv-veiculos{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.srv-veiculos span{background:#fbe9a4;padding:8px 18px;border-radius:999px;font-weight:700;font-size:15px;}
+@media(max-width:720px){
+  .srv-card{padding:30px 18px 26px;border-radius:22px;}
+  .srv-passos{flex-direction:column;align-items:center;gap:14px;}
+  .srv-seta{transform:rotate(90deg);margin:0;}
+  .srv-baixo{grid-template-columns:1fr;}
+  .srv-promo{transform:none;}
+  .srv-scooter{max-width:330px;margin:0 auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="container">
+    <div><a class="wa-topbar" href="https://wa.me/5521973688693" target="_blank" rel="noopener" id="topbar-whatsapp">✆ +55 21 97368-8693 (WhatsApp)</a></div>
+    <div class="topbar-right">
+      <a href="mailto:turismo@casasaoconrado.com" id="topbar-email">turismo@casasaoconrado.com</a>
+      <div class="lang-flags">
+        <button onclick="trocarIdioma('pt')" class="lang-flag" data-lang="pt" aria-label="Português"><img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x" alt="Português"></button>
+        <button onclick="trocarIdioma('en')" class="lang-flag" data-lang="en" aria-label="English"><img src="https://flagcdn.com/24x18/gb.png" srcset="https://flagcdn.com/48x36/gb.png 2x" alt="English"></button>
+        <button onclick="trocarIdioma('es')" class="lang-flag" data-lang="es" aria-label="Español"><img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x" alt="Español"></button>
+        <button onclick="trocarIdioma('fr')" class="lang-flag" data-lang="fr" aria-label="Français"><img src="https://flagcdn.com/24x18/fr.png" srcset="https://flagcdn.com/48x36/fr.png 2x" alt="Français"></button>
+        <button onclick="trocarIdioma('de')" class="lang-flag" data-lang="de" aria-label="Deutsch"><img src="https://flagcdn.com/24x18/de.png" srcset="https://flagcdn.com/48x36/de.png 2x" alt="Deutsch"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="nav-wrap container">
+    <a href="index.html" class="logo">
+      <img src="logo.svg" alt="Brazil Xcursions" class="logo-img">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" id="nav-inicio">Início</a>
+      <a href="catalogo.html" id="nav-passeios">Passeios</a>
+      <a href="mapa.html" id="nav-mapa">Mapa</a>
+      <a href="servicos.html" class="active" id="nav-servicos">Serviços</a>
+      <a href="blog.html" id="nav-blog">Blog</a>
+      <a href="contato.html" id="nav-contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <a href="carrinho.html" class="cart-link" id="nav-carrinho">Carrinho <span class="cart-badge">0</span></a>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero hero-rj" style="padding:0;">
+  <div class="hero-carousel" id="hero-carousel-rj"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1 id="hero-titulo">Serviços</h1>
+      <p id="hero-subtitulo">Aluguel de scooters e bikes, transfers de carro e van</p>
+    </div>
+  </div>
+</section>
+
+<div class="hero-rj-faixa"></div>
+
+<section class="srv">
+  <div class="container">
+
+    <!-- Seletor de serviços -->
+    <div class="srv-tabs" id="srv-tabs">
+      <a href="#aluguel" class="srv-tab" id="tab-motos"></a>
+      <a href="#bikes" class="srv-tab" id="tab-bikes"></a>
+      <a href="#transfers" class="srv-tab" id="tab-transfers"></a>
+    </div>
+
+    <!-- ALUGUEL DE SCOOTERS -->
+    <div class="srv-card" id="aluguel">
+      <h2 class="srv-titulo"><span id="t-como1"></span><br><strong id="t-como2"></strong></h2>
+      <p class="srv-simples" id="t-simples"></p>
+
+      <div class="srv-passos">
+        <div class="srv-passo"><div class="srv-circ"><svg viewBox="0 0 48 48" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="32" rx="5"/><path d="M15 5v8M33 5v8M6 19h36"/><path d="M15 26h2M23 26h2M31 26h2M15 33h2M23 33h2"/></svg></div><p id="t-p1"></p></div>
+        <span class="srv-seta">→</span>
+        <div class="srv-passo"><div class="srv-circ"><svg viewBox="0 0 48 48" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h8M2 28h10"/><circle cx="16" cy="37" r="4"/><circle cx="38" cy="37" r="4"/><path d="M16 33l4-12h8l4 12M24 21l-2-8h6M30 33h4l2-18"/></svg></div><p id="t-p2"></p></div>
+        <span class="srv-seta">→</span>
+        <div class="srv-passo"><div class="srv-circ"><svg viewBox="0 0 48 48" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44S10 30 10 20a14 14 0 0128 0c0 10-14 24-14 24z"/><circle cx="24" cy="20" r="5"/></svg></div><p id="t-p3"></p><span class="srv-sublinhado"></span></div>
+      </div>
+
+      <div class="srv-atende">
+        <span class="srv-marca"><svg viewBox="0 0 24 24" width="20" height="20" fill="#1b1b1b"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z"/></svg><b id="t-atendemos"></b></span>
+        <p class="srv-bairros" id="t-bairros"></p>
+        <p class="srv-entrega" id="t-entrega"></p>
+      </div>
+
+      <div class="srv-baixo">
+        <div class="srv-promo-col">
+          <div class="srv-promo">
+            <span class="srv-promo-top" id="t-promo"></span>
+            <span class="srv-promo-preco" id="t-promo-preco"></span>
+            <span class="srv-promo-sub" id="t-promo-sub"></span>
+          </div>
+          <img class="srv-scooter" src="assets/scooter-aluguel.jpg" alt="Scooter elétrica" loading="lazy">
+        </div>
+        <div class="srv-valores">
+          <h3><span class="srv-fogo">🔥</span> <span id="t-valores"></span></h3>
+          <ul>
+            <li><svg viewBox="0 0 48 32" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="24" r="4"/><circle cx="39" cy="24" r="4"/><path d="M9 24l5-11h9l5 11M23 13l-2-7h6M30 24h4l2-15"/></svg><span class="d" id="t-d2"></span><span class="tr">–</span><span class="v">R$219</span></li>
+            <li><svg viewBox="0 0 48 32" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="24" r="4"/><circle cx="39" cy="24" r="4"/><path d="M9 24l5-11h9l5 11M23 13l-2-7h6M30 24h4l2-15"/></svg><span class="d" id="t-d3"></span><span class="tr">–</span><span class="v">R$299</span></li>
+            <li><svg viewBox="0 0 48 32" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="24" r="4"/><circle cx="39" cy="24" r="4"/><path d="M9 24l5-11h9l5 11M23 13l-2-7h6M30 24h4l2-15"/></svg><span class="d" id="t-d4"></span><span class="tr">–</span><span class="v">R$349</span></li>
+            <li><svg viewBox="0 0 48 32" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="24" r="4"/><circle cx="39" cy="24" r="4"/><path d="M9 24l5-11h9l5 11M23 13l-2-7h6M30 24h4l2-15"/></svg><span class="d" id="t-d5"></span><span class="tr">–</span><span class="v">R$399</span></li>
+          </ul>
+          <div class="srv-full"><span>☆ <span id="t-full"></span></span><b>– R$449</b></div>
+        </div>
+      </div>
+
+      <div class="srv-cta"><a class="btn btn-primary" id="t-reservar" href="#" target="_blank" rel="noopener"></a></div>
+    </div>
+
+    <!-- BIKES -->
+    <div class="srv-card srv-card-simples" id="bikes">
+      <div class="srv-ico">🚲</div>
+      <h2 id="t-bikes-t"></h2>
+      <p id="t-bikes-p"></p>
+      <a class="btn btn-outline" id="t-bikes-b" href="#" target="_blank" rel="noopener"></a>
+    </div>
+
+    <!-- TRANSFERS -->
+    <div class="srv-card srv-card-simples" id="transfers">
+      <div class="srv-ico">🚐</div>
+      <h2 id="t-tr-t"></h2>
+      <p id="t-tr-p"></p>
+      <div class="srv-veiculos">
+        <span id="t-tr-carro"></span>
+        <span id="t-tr-van"></span>
+      </div>
+      <a class="btn btn-outline" id="t-tr-b" href="#" target="_blank" rel="noopener"></a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="logo.svg" alt="Brazil Xcursions" class="logo-img"></div>
+        <p id="footer-sobre">Sua base no Rio de Janeiro para viver experiências autênticas: praias, trilhas, aventura e cultura carioca, tudo em um só lugar.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener">📷</a>
+          <a href="https://www.facebook.com/casasaoconradorj" target="_blank" rel="noopener">📘</a>
+        </div>
+      </div>
+      <div>
+        <h4 id="footer-explorar">Explorar</h4>
+        <ul>
+          <li><a href="catalogo.html" id="footer-todos-passeios">Todos os passeios</a></li>
+          <li><a href="blog.html" id="footer-blog">Blog</a></li>
+          <li><a href="catalogo.html?categoria=trilha%2Ftrekking" id="footer-trilhas">Trilhas & Trekking</a></li>
+          <li><a href="catalogo.html?categoria=praia%2Filha" id="footer-praias">Praia & Ilhas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-parceiros">Parceiros</h4>
+        <ul>
+          <li><a href="cadastro-parceiro.html" id="footer-seja-parceiro">Seja um parceiro</a></li>
+          <li><a href="cadastro-tour.html" id="footer-cadastrar-passeio">Cadastrar um passeio</a></li>
+          <li><a href="contato.html" id="footer-contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-contato-titulo">Contato</h4>
+        <ul>
+          <li id="footer-endereco">Rua Coronel Ribeiro Gomes, 328<br>São Conrado, Rio de Janeiro - RJ</li>
+          <li id="footer-whatsapp">+55 21 97368-8693 (WhatsApp)</li>
+          <li id="footer-email">turismo@casasaoconrado.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="footer-direitos">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
+      <span id="footer-cnpj">Protótipo de e-commerce — Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script src="cart.js"></script>
+<script src="main.js"></script>
+<script src="rj-carrossel.js"></script>
+<script>
+// ============================================================
+// TRADUÇÃO (interface global via TRADUCOES_INTERFACE; corpo da página local)
+// ============================================================
+function getTexto(chave) {
+  var lang = localStorage.getItem('idioma') || 'pt';
+  var partes = chave.split('.');
+  var atual = (typeof TRADUCOES_INTERFACE !== 'undefined' && TRADUCOES_INTERFACE) ? TRADUCOES_INTERFACE[lang] : null;
+  for (var i = 0; i < partes.length; i++) {
+    if (atual && atual[partes[i]] !== undefined) atual = atual[partes[i]];
+    else return chave;
+  }
+  return atual;
+}
+var tInterface = getTexto;
+
+var WA = 'https://wa.me/5521973688693?text=';
+var SRV = {
+  pt: {
+    hero: 'Serviços', sub: 'Aluguel de scooters e bikes, transfers de carro e van', nav: 'Serviços', title: 'Serviços',
+    tabMotos: 'Scooters', tabBikes: 'Bikes', tabTransfers: 'Transfers',
+    como1: 'Como funciona', como2: 'o aluguel?', simples: 'Nosso aluguel é super simples:',
+    p1: 'Vocês escolhem o período que desejam usar as scooters.', p2: 'Fazemos a entrega e retirada no local combinado.', p3: 'Rápido, prático e sem complicação!',
+    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon e São Conrado,', entrega: 'com entrega em hotel, Airbnb ou praia.',
+    promo: 'Promoção do dia', promoPreco: '1H por R$119', promoSub: 'para 2 pessoas 😱',
+    valores: 'Valores:', d2: '2h', d3: '3h', d4: 'Até 4h', d5: 'Até 5h', full: 'Full Day até 6h',
+    reservar: 'Reservar pelo WhatsApp', waMotos: 'Olá! Quero alugar uma scooter.',
+    bikesT: 'Aluguel de bikes', bikesP: 'Pedale pela orla do Rio com entrega no seu hotel, Airbnb ou praia. Consulte disponibilidade e valores.', bikesB: 'Consultar bikes', waBikes: 'Olá! Quero alugar uma bike.',
+    trT: 'Transfers de carro e van', trP: 'Aeroporto, hotéis, passeios e eventos, com conforto e pontualidade. Consulte valores para o seu trajeto.', carro: '🚗 Carro', van: '🚐 Van', trB: 'Pedir orçamento', waTr: 'Olá! Quero um orçamento de transfer.'
+  },
+  en: {
+    hero: 'Services', sub: 'Scooter and bike rentals, car and van transfers', nav: 'Services', title: 'Services',
+    tabMotos: 'Scooters', tabBikes: 'Bikes', tabTransfers: 'Transfers',
+    como1: 'How does', como2: 'renting work?', simples: 'Our rental is super simple:',
+    p1: 'You choose how long you want to use the scooters.', p2: 'We deliver and pick up at the agreed location.', p3: 'Fast, easy and hassle-free!',
+    atendemos: 'We serve', bairros: 'Copacabana, Ipanema, Leblon and São Conrado,', entrega: 'with delivery to your hotel, Airbnb or the beach.',
+    promo: 'Deal of the day', promoPreco: '1H for R$119', promoSub: 'for 2 people 😱',
+    valores: 'Prices:', d2: '2h', d3: '3h', d4: 'Up to 4h', d5: 'Up to 5h', full: 'Full Day up to 6h',
+    reservar: 'Book via WhatsApp', waMotos: 'Hi! I want to rent a scooter.',
+    bikesT: 'Bike rental', bikesP: 'Ride along the Rio seafront with delivery to your hotel, Airbnb or the beach. Ask about availability and prices.', bikesB: 'Ask about bikes', waBikes: 'Hi! I want to rent a bike.',
+    trT: 'Car and van transfers', trP: 'Airport, hotels, tours and events, with comfort and punctuality. Ask for a price for your route.', carro: '🚗 Car', van: '🚐 Van', trB: 'Request a quote', waTr: 'Hi! I would like a transfer quote.'
+  },
+  es: {
+    hero: 'Servicios', sub: 'Alquiler de scooters y bicis, traslados en auto y van', nav: 'Servicios', title: 'Servicios',
+    tabMotos: 'Scooters', tabBikes: 'Bicis', tabTransfers: 'Traslados',
+    como1: '¿Cómo funciona', como2: 'el alquiler?', simples: 'Nuestro alquiler es muy simple:',
+    p1: 'Ustedes eligen el período que desean usar las scooters.', p2: 'Hacemos la entrega y retiro en el lugar acordado.', p3: '¡Rápido, práctico y sin complicaciones!',
+    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon y São Conrado,', entrega: 'con entrega en hotel, Airbnb o playa.',
+    promo: 'Promoción del día', promoPreco: '1H por R$119', promoSub: 'para 2 personas 😱',
+    valores: 'Valores:', d2: '2h', d3: '3h', d4: 'Hasta 4h', d5: 'Hasta 5h', full: 'Full Day hasta 6h',
+    reservar: 'Reservar por WhatsApp', waMotos: '¡Hola! Quiero alquilar una scooter.',
+    bikesT: 'Alquiler de bicis', bikesP: 'Pedalea por la costanera de Río con entrega en tu hotel, Airbnb o playa. Consulta disponibilidad y valores.', bikesB: 'Consultar bicis', waBikes: '¡Hola! Quiero alquilar una bici.',
+    trT: 'Traslados en auto y van', trP: 'Aeropuerto, hoteles, paseos y eventos, con comodidad y puntualidad. Consulta valores para tu trayecto.', carro: '🚗 Auto', van: '🚐 Van', trB: 'Pedir presupuesto', waTr: '¡Hola! Quiero un presupuesto de traslado.'
+  },
+  fr: {
+    hero: 'Services', sub: 'Location de scooters et de vélos, transferts en voiture et en van', nav: 'Services', title: 'Services',
+    tabMotos: 'Scooters', tabBikes: 'Vélos', tabTransfers: 'Transferts',
+    como1: 'Comment fonctionne', como2: 'la location ?', simples: 'Notre location est très simple :',
+    p1: 'Vous choisissez la durée d’utilisation des scooters.', p2: 'Nous livrons et récupérons au lieu convenu.', p3: 'Rapide, pratique et sans complication !',
+    atendemos: 'Nous desservons', bairros: 'Copacabana, Ipanema, Leblon et São Conrado,', entrega: 'avec livraison à l’hôtel, Airbnb ou à la plage.',
+    promo: 'Promo du jour', promoPreco: '1H pour R$119', promoSub: 'pour 2 personnes 😱',
+    valores: 'Tarifs :', d2: '2h', d3: '3h', d4: 'Jusqu’à 4h', d5: 'Jusqu’à 5h', full: 'Full Day jusqu’à 6h',
+    reservar: 'Réserver sur WhatsApp', waMotos: 'Bonjour ! Je voudrais louer un scooter.',
+    bikesT: 'Location de vélos', bikesP: 'Pédalez le long du front de mer de Rio, avec livraison à votre hôtel, Airbnb ou à la plage. Renseignez-vous sur la disponibilité et les tarifs.', bikesB: 'Se renseigner', waBikes: 'Bonjour ! Je voudrais louer un vélo.',
+    trT: 'Transferts en voiture et en van', trP: 'Aéroport, hôtels, excursions et événements, avec confort et ponctualité. Demandez un tarif pour votre trajet.', carro: '🚗 Voiture', van: '🚐 Van', trB: 'Demander un devis', waTr: 'Bonjour ! Je voudrais un devis de transfert.'
+  },
+  de: {
+    hero: 'Services', sub: 'Scooter- und Fahrradverleih, Transfers mit Auto und Van', nav: 'Services', title: 'Services',
+    tabMotos: 'Scooter', tabBikes: 'Fahrräder', tabTransfers: 'Transfers',
+    como1: 'So funktioniert', como2: 'die Miete', simples: 'Unsere Miete ist ganz einfach:',
+    p1: 'Ihr wählt, wie lange ihr die Scooter nutzen möchtet.', p2: 'Wir liefern und holen am vereinbarten Ort ab.', p3: 'Schnell, praktisch und unkompliziert!',
+    atendemos: 'Wir beliefern', bairros: 'Copacabana, Ipanema, Leblon und São Conrado,', entrega: 'mit Lieferung zu Hotel, Airbnb oder Strand.',
+    promo: 'Angebot des Tages', promoPreco: '1 Std. für R$119', promoSub: 'für 2 Personen 😱',
+    valores: 'Preise:', d2: '2 Std.', d3: '3 Std.', d4: 'Bis 4 Std.', d5: 'Bis 5 Std.', full: 'Full Day bis 6 Std.',
+    reservar: 'Per WhatsApp buchen', waMotos: 'Hallo! Ich möchte einen Scooter mieten.',
+    bikesT: 'Fahrradverleih', bikesP: 'Radeln Sie die Strandpromenade von Rio entlang, mit Lieferung zu Hotel, Airbnb oder Strand. Fragen Sie nach Verfügbarkeit und Preisen.', bikesB: 'Fahrräder anfragen', waBikes: 'Hallo! Ich möchte ein Fahrrad mieten.',
+    trT: 'Transfers mit Auto und Van', trP: 'Flughafen, Hotels, Ausflüge und Veranstaltungen, komfortabel und pünktlich. Fragen Sie nach dem Preis für Ihre Strecke.', carro: '🚗 Auto', van: '🚐 Van', trB: 'Angebot anfragen', waTr: 'Hallo! Ich hätte gern ein Transfer-Angebot.'
+  }
+};
+
+function atualizarPaginaServicos() {
+  var lang = localStorage.getItem('idioma') || 'pt';
+  var T = SRV[lang] || SRV.pt;
+  function set(id, v) { var el = document.getElementById(id); if (el) el.textContent = v; }
+
+  set('topbar-whatsapp', getTexto('whatsapp'));
+  set('topbar-email', getTexto('email'));
+  set('nav-inicio', getTexto('menu.inicio'));
+  set('nav-passeios', getTexto('menu.passeios'));
+  set('nav-mapa', getTexto('menu.mapa'));
+  set('nav-servicos', T.nav);
+  set('nav-blog', getTexto('menu.blog'));
+  set('nav-contato', getTexto('menu.contato'));
+  document.getElementById('nav-carrinho').innerHTML = getTexto('carrinho.menu') + ' <span class="cart-badge">0</span>';
+  if (typeof updateCartBadge === 'function') updateCartBadge();
+
+  set('hero-titulo', T.hero); set('hero-subtitulo', T.sub);
+  set('tab-motos', T.tabMotos); set('tab-bikes', T.tabBikes); set('tab-transfers', T.tabTransfers);
+  set('t-como1', T.como1); set('t-como2', T.como2); set('t-simples', T.simples);
+  set('t-p1', T.p1); set('t-p2', T.p2); set('t-p3', T.p3);
+  set('t-atendemos', T.atendemos); set('t-bairros', T.bairros); set('t-entrega', T.entrega);
+  set('t-promo', T.promo); set('t-promo-preco', T.promoPreco); set('t-promo-sub', T.promoSub);
+  set('t-valores', T.valores); set('t-d2', T.d2); set('t-d3', T.d3); set('t-d4', T.d4); set('t-d5', T.d5); set('t-full', T.full);
+  set('t-reservar', T.reservar); document.getElementById('t-reservar').href = WA + encodeURIComponent(T.waMotos);
+  set('t-bikes-t', T.bikesT); set('t-bikes-p', T.bikesP); set('t-bikes-b', T.bikesB); document.getElementById('t-bikes-b').href = WA + encodeURIComponent(T.waBikes);
+  set('t-tr-t', T.trT); set('t-tr-p', T.trP); set('t-tr-carro', T.carro); set('t-tr-van', T.van); set('t-tr-b', T.trB); document.getElementById('t-tr-b').href = WA + encodeURIComponent(T.waTr);
+
+  // Footer
+  set('footer-sobre', getTexto('footer.sobre'));
+  set('footer-explorar', getTexto('footer.explorar'));
+  set('footer-todos-passeios', getTexto('footer.todosPasseios'));
+  set('footer-blog', getTexto('footer.blog'));
+  set('footer-trilhas', getTexto('footer.trilhas'));
+  set('footer-praias', getTexto('footer.praias'));
+  set('footer-parceiros', getTexto('footer.parceiros'));
+  set('footer-seja-parceiro', getTexto('footer.sejaParceiro'));
+  set('footer-cadastrar-passeio', getTexto('footer.cadastrarPasseio'));
+  set('footer-contato', getTexto('footer.contato'));
+  set('footer-contato-titulo', getTexto('footer.contato'));
+  document.getElementById('footer-endereco').innerHTML = getTexto('footer.endereco');
+  set('footer-direitos', getTexto('footer.direitos'));
+  set('footer-cnpj', getTexto('footer.cnpj'));
+
+  document.getElementById('page-title').textContent = T.title + ' — Brazil Xcursions';
+  document.getElementById('meta-desc').content = T.sub;
+  document.documentElement.dir = 'ltr';
+  document.documentElement.lang = lang;
+}
+
+function trocarIdioma(lang) {
+  if (typeof definirIdioma === 'function') { definirIdioma(lang); }
+  else { localStorage.setItem('idioma', lang); }
+  atualizarPaginaServicos();
+  atualizarBandeirasIdioma(lang);
+}
+function atualizarBandeirasIdioma(lang) {
+  document.querySelectorAll('.lang-flag').forEach(function(btn) {
+    btn.style.display = btn.dataset.lang === lang ? 'none' : '';
+  });
+}
+
+// ============================================================
+// CARROSSEL DO TOPO
+// ============================================================
+(function() {
+  var carousel = document.getElementById('hero-carousel-rj');
+  if (!carousel) return;
+  var FOTOS_RJ = (typeof CARROSSEL_RJ !== 'undefined') ? CARROSSEL_RJ : [];
+  FOTOS_RJ.forEach(function(f, i) {
+    var im = document.createElement('img');
+    im.src = f.src; im.alt = f.nome;
+    im.loading = i === 0 ? 'eager' : 'lazy';
+    im.dataset.nome = f.nome;
+    im.onerror = function() { this.remove(); };
+    carousel.appendChild(im);
+  });
+  var legenda = document.createElement('span');
+  legenda.className = 'hc-legenda';
+  carousel.parentNode.appendChild(legenda);
+  function setLegenda(im) {
+    if (!im) { legenda.style.display = 'none'; return; }
+    legenda.style.display = ''; legenda.textContent = im.dataset.nome;
+  }
+  var primeira = carousel.querySelector('img');
+  var idx = 0;
+  if (primeira) { primeira.classList.add('active'); setLegenda(primeira); }
+  setInterval(function() {
+    var imgs = carousel.querySelectorAll('img');
+    if (imgs.length < 2) return;
+    imgs[idx % imgs.length].classList.remove('active');
+    idx = (idx + 1) % imgs.length;
+    imgs[idx].classList.add('active');
+    setLegenda(imgs[idx]);
+  }, 10000);
+})();
+
+// ============================================================
+// INICIALIZAÇÃO
+// ============================================================
+document.addEventListener('DOMContentLoaded', function() {
+  var langUrl = new URLSearchParams(window.location.search).get('lang');
+  var idioma = langUrl || localStorage.getItem('idioma') || 'pt';
+  if (!SRV[idioma]) idioma = 'pt';
+  if (typeof definirIdioma === 'function') definirIdioma(idioma);
+  else localStorage.setItem('idioma', idioma);
+  atualizarPaginaServicos();
+  atualizarBandeirasIdioma(idioma);
+});
+document.addEventListener('idiomaAlterado', function(e) {
+  atualizarPaginaServicos();
+  atualizarBandeirasIdioma(e.detail.idioma);
+});
+</script>
+</body>
+</html>
