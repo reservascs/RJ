@@ -147,7 +147,7 @@
       <a href="#transfers" class="srv-cat"><span class="srv-cat-ico"><img src="assets/van.png" alt="Van para transfer" loading="lazy"></span><h2 id="c-tr-t"></h2><p id="c-tr-p"></p><span class="srv-cat-ver" id="c-ver-t"></span></a>
     </div>
 
-    <!-- BIKES + ALUGUEL (um card só) -->
+    <!-- BIKES (cabeçalho + como funciona o aluguel) -->
     <div class="srv-card" id="bikes">
       <div class="srv-bikes-head">
         <div class="srv-ico"><img src="assets/bike.png" alt="Bike elétrica"></div>
@@ -155,7 +155,7 @@
         <p id="t-bikes-p"></p>
       </div>
 
-      <div class="srv-aluguel" id="aluguel">
+      <div class="srv-aluguel">
         <h2 class="srv-titulo srv-como"><span id="t-como1"></span> <strong id="t-como2"></strong></h2>
       <p class="srv-simples" id="t-simples"></p>
 
@@ -186,8 +186,17 @@
         </div>
       </div>
 
-      <div class="srv-cta"><a class="btn btn-primary" id="t-reservar" href="#" target="_blank" rel="noopener"></a></div>
       </div>
+    </div>
+
+    <!-- MOTOS (cabeçalho + reserva) -->
+    <div class="srv-card" id="aluguel">
+      <div class="srv-bikes-head">
+        <div class="srv-ico"><img src="assets/moto.png" alt="Moto elétrica"></div>
+        <h2 id="t-motos-t"></h2>
+        <p id="t-motos-p"></p>
+      </div>
+      <div class="srv-cta"><a class="btn btn-primary" id="t-reservar" href="#" target="_blank" rel="noopener"></a></div>
     </div>
 
     <!-- TRANSFERS -->
@@ -349,7 +358,8 @@ function atualizarPaginaServicos() {
   set('t-promo', T.promo); set('t-promo-preco', T.promoPreco); set('t-promo-sub', T.promoSub);
   set('t-valores', T.valores); set('t-d2', T.d2); set('t-d3', T.d3); set('t-d4', T.d4); set('t-d5', T.d5); set('t-full', T.full);
   set('t-reservar', T.reservar); document.getElementById('t-reservar').href = WA + encodeURIComponent(T.waMotos);
-  set('t-bikes-t', T.bikesT); set('t-bikes-p', T.bikesP); set('t-bikes-b', T.bikesB); document.getElementById('t-bikes-b').href = WA + encodeURIComponent(T.waBikes);
+  set('t-bikes-t', T.bikesT); set('t-bikes-p', T.bikesP);
+  set('t-motos-t', C.motos); set('t-motos-p', C.motosP);
   set('t-tr-t', T.trT); set('t-tr-p', T.trP); set('t-tr-carro', T.carro); set('t-tr-van', T.van); set('t-tr-b', T.trB); document.getElementById('t-tr-b').href = WA + encodeURIComponent(T.waTr);
 
   // Footer (mantém o texto estático se não houver tradução)
