@@ -47,6 +47,7 @@
 
   .pacote-card.srv-card-home .card-img svg{display:block;width:100%;height:100%;}
   .pacote-card.srv-card-home .card-desc{-webkit-line-clamp:3;}
+  .pacote-card.srv-card-home .card-desc{-webkit-line-clamp:6 !important;}
 </style>
 </head>
 <body>
@@ -244,11 +245,11 @@ function montarChips() {
 
 
 var SERVICOS_CARD = {
-  pt:{t:'Serviços',s:'Mais comodidade para você e a sua família na sua estadia no Rio',c:'Saber mais'},
-  en:{t:'Services',s:'More comfort for you and your family during your stay in Rio',c:'Learn more'},
-  es:{t:'Servicios',s:'Más comodidad para ti y tu familia durante tu estadía en Río',c:'Saber más'},
-  fr:{t:'Services',s:'Plus de confort pour vous et votre famille pendant votre séjour à Rio',c:'En savoir plus'},
-  de:{t:'Services',s:'Mehr Komfort für Sie und Ihre Familie während Ihres Aufenthalts in Rio',c:'Mehr erfahren'}
+  pt:{li:'Aluguel de bikes e motos<br>Transfer com carro ou van<br>Massagem', cat:'Bikes, motos e transfers', t:'Serviços',s:'Mais comodidade para você e a sua família na sua estadia no Rio',c:'Saber mais'},
+  en:{li:'Bike and scooter rental<br>Car or van transfer<br>Massage', cat:'Bikes, scooters and transfers', t:'Services',s:'More comfort for you and your family during your stay in Rio',c:'Learn more'},
+  es:{li:'Alquiler de bicis y scooters<br>Traslado en auto o van<br>Masaje', cat:'Bicis, scooters y traslados', t:'Servicios',s:'Más comodidad para ti y tu familia durante tu estadía en Río',c:'Saber más'},
+  fr:{li:'Location de vélos et scooters<br>Transfert en voiture ou van<br>Massage', cat:'Vélos, scooters et transferts', t:'Services',s:'Plus de confort pour vous et votre famille pendant votre séjour à Rio',c:'En savoir plus'},
+  de:{li:'Fahrrad- und Scooterverleih<br>Transfer mit Auto oder Van<br>Massage', cat:'E-Bikes, Scooter und Transfers', t:'Services',s:'Mehr Komfort für Sie und Ihre Familie während Ihres Aufenthalts in Rio',c:'Mehr erfahren'}
 };
 var SERVICOS_ARTE = '<img src="assets/servicos.png" alt="Serviços" style="display:block;width:100%;height:100%;object-fit:cover;">';
 
@@ -264,8 +265,9 @@ function inserirCardServicos() {
   d.innerHTML =
     '<div class="card-img"><a href="servicos.html" style="display:block;width:100%;height:100%;">' + SERVICOS_ARTE + '</a></div>' +
     '<div class="card-body">' +
+      '<span class="card-category">' + T.cat + '</span>' +
       '<h3 class="card-title">' + T.t + '</h3>' +
-      '<p class="card-desc">' + T.s + '</p>' +
+      '<p class="card-desc">' + T.li + '<br>' + T.s + '</p>' +
       '<a href="servicos.html" class="btn"><span class="btn-default">' + T.c + '</span><span class="btn-hover">' + T.c + '</span></a>' +
     '</div>';
   var filhos = grid.children;
