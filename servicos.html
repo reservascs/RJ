@@ -160,6 +160,7 @@
         <div class="srv-ico"><img src="assets/bike.png" alt="Bike elétrica"></div>
         <h2 id="t-bikes-t"></h2>
         <p id="t-bikes-p"></p>
+        <p class="srv-bairros" id="t-bairros"></p>
       </div>
 
       <div class="srv-aluguel">
@@ -172,12 +173,6 @@
         <div class="srv-passo"><div class="srv-circ"><svg viewBox="0 0 48 48" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h8M2 28h10"/><circle cx="16" cy="37" r="4"/><circle cx="38" cy="37" r="4"/><path d="M16 33l4-12h8l4 12M24 21l-2-8h6M30 33h4l2-18"/></svg></div><p id="t-p2"></p></div>
         <span class="srv-seta">→</span>
         <div class="srv-passo"><div class="srv-circ"><svg viewBox="0 0 48 48" fill="none" stroke="#1b1b1b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44S10 30 10 20a14 14 0 0128 0c0 10-14 24-14 24z"/><circle cx="24" cy="20" r="5"/></svg></div><p id="t-p3"></p><span class="srv-sublinhado"></span></div>
-      </div>
-
-      <div class="srv-atende">
-        <span class="srv-marca"><svg viewBox="0 0 24 24" width="20" height="20" fill="#1b1b1b"><path d="M12 2a7 7 0 00-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 00-7-7zm0 9.5A2.5 2.5 0 119.5 9 2.5 2.5 0 0112 11.5z"/></svg><b id="t-atendemos"></b></span>
-        <p class="srv-bairros" id="t-bairros"></p>
-        <p class="srv-entrega" id="t-entrega"></p>
       </div>
 
       <div class="srv-baixo">
@@ -278,7 +273,7 @@ var SRV = {
     tabMotos: 'Scooters', tabBikes: 'Bikes', tabTransfers: 'Transfers',
     como1: 'Como funciona', como2: 'o aluguel?', simples: 'Nosso aluguel é super simples:',
     p1: 'Vocês escolhem o período que desejam usar as scooters.', p2: 'Fazemos a entrega e retirada no local combinado.', p3: 'Rápido, prático e sem complicação!',
-    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon e São Conrado,', entrega: 'com entrega em hotel, Airbnb ou praia.',
+    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon e São Conrado', entrega: 'com entrega em hotel, Airbnb ou praia.',
     promo: 'Promoção do dia', promoPreco: '1H por R$119', promoSub: 'para 2 pessoas 😱',
     valores: 'Valores:', d2: '2h', d3: '3h', d4: 'Até 4h', d5: 'Até 5h', full: 'Full Day até 6h',
     reservar: 'Reservar pelo WhatsApp', waMotos: 'Olá! Quero alugar uma scooter.',
@@ -290,7 +285,7 @@ var SRV = {
     tabMotos: 'Scooters', tabBikes: 'Bikes', tabTransfers: 'Transfers',
     como1: 'How does', como2: 'renting work?', simples: 'Our rental is super simple:',
     p1: 'You choose how long you want to use the scooters.', p2: 'We deliver and pick up at the agreed location.', p3: 'Fast, easy and hassle-free!',
-    atendemos: 'We serve', bairros: 'Copacabana, Ipanema, Leblon and São Conrado,', entrega: 'with delivery to your hotel, Airbnb or the beach.',
+    atendemos: 'We serve', bairros: 'Copacabana, Ipanema, Leblon and São Conrado', entrega: 'with delivery to your hotel, Airbnb or the beach.',
     promo: 'Deal of the day', promoPreco: '1H for R$119', promoSub: 'for 2 people 😱',
     valores: 'Prices:', d2: '2h', d3: '3h', d4: 'Up to 4h', d5: 'Up to 5h', full: 'Full Day up to 6h',
     reservar: 'Book via WhatsApp', waMotos: 'Hi! I want to rent a scooter.',
@@ -302,7 +297,7 @@ var SRV = {
     tabMotos: 'Scooters', tabBikes: 'Bicis', tabTransfers: 'Traslados',
     como1: '¿Cómo funciona', como2: 'el alquiler?', simples: 'Nuestro alquiler es muy simple:',
     p1: 'Ustedes eligen el período que desean usar las scooters.', p2: 'Hacemos la entrega y retiro en el lugar acordado.', p3: '¡Rápido, práctico y sin complicaciones!',
-    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon y São Conrado,', entrega: 'con entrega en hotel, Airbnb o playa.',
+    atendemos: 'Atendemos', bairros: 'Copacabana, Ipanema, Leblon y São Conrado', entrega: 'con entrega en hotel, Airbnb o playa.',
     promo: 'Promoción del día', promoPreco: '1H por R$119', promoSub: 'para 2 personas 😱',
     valores: 'Valores:', d2: '2h', d3: '3h', d4: 'Hasta 4h', d5: 'Hasta 5h', full: 'Full Day hasta 6h',
     reservar: 'Reservar por WhatsApp', waMotos: '¡Hola! Quiero alquilar una scooter.',
@@ -314,7 +309,7 @@ var SRV = {
     tabMotos: 'Scooters', tabBikes: 'Vélos', tabTransfers: 'Transferts',
     como1: 'Comment fonctionne', como2: 'la location ?', simples: 'Notre location est très simple :',
     p1: 'Vous choisissez la durée d’utilisation des scooters.', p2: 'Nous livrons et récupérons au lieu convenu.', p3: 'Rapide, pratique et sans complication !',
-    atendemos: 'Nous desservons', bairros: 'Copacabana, Ipanema, Leblon et São Conrado,', entrega: 'avec livraison à l’hôtel, Airbnb ou à la plage.',
+    atendemos: 'Nous desservons', bairros: 'Copacabana, Ipanema, Leblon et São Conrado', entrega: 'avec livraison à l’hôtel, Airbnb ou à la plage.',
     promo: 'Promo du jour', promoPreco: '1H pour R$119', promoSub: 'pour 2 personnes 😱',
     valores: 'Tarifs :', d2: '2h', d3: '3h', d4: 'Jusqu’à 4h', d5: 'Jusqu’à 5h', full: 'Full Day jusqu’à 6h',
     reservar: 'Réserver sur WhatsApp', waMotos: 'Bonjour ! Je voudrais louer un scooter.',
@@ -326,7 +321,7 @@ var SRV = {
     tabMotos: 'Scooter', tabBikes: 'Fahrräder', tabTransfers: 'Transfers',
     como1: 'So funktioniert', como2: 'die Miete', simples: 'Unsere Miete ist ganz einfach:',
     p1: 'Ihr wählt, wie lange ihr die Scooter nutzen möchtet.', p2: 'Wir liefern und holen am vereinbarten Ort ab.', p3: 'Schnell, praktisch und unkompliziert!',
-    atendemos: 'Wir beliefern', bairros: 'Copacabana, Ipanema, Leblon und São Conrado,', entrega: 'mit Lieferung zu Hotel, Airbnb oder Strand.',
+    atendemos: 'Wir beliefern', bairros: 'Copacabana, Ipanema, Leblon und São Conrado', entrega: 'mit Lieferung zu Hotel, Airbnb oder Strand.',
     promo: 'Angebot des Tages', promoPreco: '1 Std. für R$119', promoSub: 'für 2 Personen 😱',
     valores: 'Preise:', d2: '2 Std.', d3: '3 Std.', d4: 'Bis 4 Std.', d5: 'Bis 5 Std.', full: 'Full Day bis 6 Std.',
     reservar: 'Per WhatsApp buchen', waMotos: 'Hallo! Ich möchte einen Scooter mieten.',
