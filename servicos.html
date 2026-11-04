@@ -71,36 +71,6 @@
   .srv-promo{transform:none;}
   .srv-scooter{max-width:330px;margin:0 auto;}
 }
-  .srv-hero{text-align:left !important;}
-  .srv-hero .srv-logo{display:block;margin-top:14px;line-height:0;}
-  .srv-hero .srv-logo img{max-height:56px;width:auto;display:block;}
-</style>
-<style id="ajuste-rodape-final">
-  .site-footer { padding-top: 19px !important; padding-bottom: 0 !important; }
-  .site-footer .footer-grid {
-    grid-template-columns: minmax(0, .85fr) minmax(480px, 1.5fr) !important;
-    gap: 18px !important; align-items: start;
-  }
-  .site-footer .footer-logo { margin: 0 !important; line-height: 0 !important; }
-  .site-footer .logo-img { max-height: 42px !important; width: auto !important; }
-  .site-footer #footer-sobre { margin: 3px 0 0 !important; line-height: 1.35 !important; }
-  .site-footer h4 { margin: -16px 0 3px !important; line-height: 1.1 !important; font-size: 1.12em !important; }
-  #footer-contato-titulo { text-decoration: none !important; }
-  #footer-contato-titulo:hover { text-decoration: underline !important; }
-  .site-footer .footer-bottom span { font-size: 12px !important; font-weight: 400 !important; font-family: inherit !important; }
-  .site-footer #footer-endereco, .site-footer #footer-whatsapp, .site-footer #footer-email { font-size: 1.06em !important; }
-  .site-footer ul { margin: 0 !important; padding: 0 !important; line-height: 1.25 !important; }
-  .site-footer li { margin: 0 0 2px !important; padding: 0 !important; }
-  .site-footer .footer-social-right { display: flex; justify-content: flex-end; margin: 0 0 3px !important; line-height: 0 !important; }
-  .site-footer .footer-social-right img { max-height: 24px !important; width: auto !important; }
-  .site-footer .footer-bottom { margin: 3px 0 0 !important; padding: 3px 0 0 !important; line-height: 1.2 !important; }
-  @media (max-width: 760px) {
-    .site-footer .footer-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
-    .site-footer .footer-social-right { justify-content: flex-start; }
-  }
-
-  .pacote-card.srv-card-home .card-img svg{display:block;width:100%;height:100%;}
-  .pacote-card.srv-card-home .card-desc{-webkit-line-clamp:3;}
 </style>
 </head>
 <body>
@@ -121,11 +91,24 @@
   </div>
 </div>
 
-<section class="srv-hero">
-  <div class="container">
-    <h1 id="hero-titulo">Serviços</h1>
-    <a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="srv-logo"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></a>
+<header class="site-header">
+  <div class="nav-wrap container">
+    <a href="index.html" class="logo">
+      <img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img">
+    </a>
+    <nav class="main-nav">
+      <a href="index.html" id="nav-inicio">Início</a>
+      <a href="servicos.html" class="active" id="nav-servicos">Serviços</a>
+      <a href="contato.html" id="nav-contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
   </div>
+</header>
+
+<section class="srv-hero">
+  <div class="container"><h1 id="hero-titulo">Serviços</h1></div>
 </section>
 
 <section class="srv">
@@ -206,27 +189,44 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid" style="grid-template-columns: .85fr 1.5fr; gap: 18px; align-items: start;">
+    <div class="footer-grid">
       <div>
-        <div class="footer-logo"><a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></a></div>
+        <div class="footer-logo"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></div>
         <p id="footer-sobre">Sua base no Rio de Janeiro para viver experiências autênticas: praias, trilhas, aventura e cultura carioca, tudo em um só lugar.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener">📷</a>
+          <a href="https://www.facebook.com/casasaoconradorj" target="_blank" rel="noopener">📘</a>
+        </div>
       </div>
       <div>
-        <div class="social-row footer-social-right">
-          <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/insta.png" alt="Instagram"></a>
-          <a href="https://www.facebook.com/casasaoconradorj" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/face.png" alt="Facebook"></a>
-        </div>
-        <h4 style="margin:0 0 3px"><a id="footer-contato-titulo" href="contato.html" style="color:inherit;text-decoration:none">Contato</a></h4>
+        <h4 id="footer-explorar">Explorar</h4>
+        <ul>
+          <li><a href="catalogo.html" id="footer-todos-passeios">Todos os passeios</a></li>
+          <li><a href="blog.html" id="footer-blog">Blog</a></li>
+          <li><a href="catalogo.html?categoria=trilha%2Ftrekking" id="footer-trilhas">Trilhas & Trekking</a></li>
+          <li><a href="catalogo.html?categoria=praia%2Filha" id="footer-praias">Praia & Ilhas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-parceiros">Parceiros</h4>
+        <ul>
+          <li><a href="cadastro-parceiro.html" id="footer-seja-parceiro">Seja um parceiro</a></li>
+          <li><a href="cadastro-tour.html" id="footer-cadastrar-passeio">Cadastrar um passeio</a></li>
+          <li><a href="contato.html" id="footer-contato">Contato</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 id="footer-contato-titulo">Contato</h4>
         <ul>
           <li id="footer-endereco">Rua Coronel Ribeiro Gomes, 328<br>São Conrado, Rio de Janeiro - RJ</li>
           <li id="footer-whatsapp">+55 21 97368-8693 (WhatsApp)</li>
-          <li id="footer-email">turismocsc@casasaoconrado.com</li>
+          <li id="footer-email">turismo@casasaoconrado.com</li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom" style="margin-top: 3px; padding-top: 3px; padding-bottom: 0;">
+    <div class="footer-bottom">
       <span id="footer-direitos">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
-      <span id="footer-cnpj">Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
+      <span id="footer-cnpj">Protótipo de e-commerce — Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
     </div>
   </div>
 </footer>
@@ -253,9 +253,9 @@ var tInterface = getTexto;
 
 var WA = 'https://wa.me/5521973688693?text=';
 var CARDS = {
-  pt: { motos: 'Motos', motosP: 'Scooters elétricas para alugar, com entrega no local combinado.', bikes: 'Bikes elétricas', bikesP: 'Pedale pela orla do Rio com entrega no seu hotel, Airbnb ou praia.', tr: 'Transfers', trP: 'Aeroporto, hotéis, passeios e eventos, de carro ou van.', ver: 'Ver detalhes ↓' },
-  en: { motos: 'Scooters', motosP: 'Electric scooters for rent, delivered to the agreed location.', bikes: 'Electric bikes', bikesP: 'Ride the Rio seafront with delivery to your hotel, Airbnb or the beach.', tr: 'Transfers', trP: 'Airport, hotels, tours and events, by car or van.', ver: 'See details ↓' },
-  es: { motos: 'Scooters', motosP: 'Scooters eléctricas para alquilar, con entrega en el lugar acordado.', bikes: 'Bicis eléctricas', bikesP: 'Pedalea por la costanera de Río con entrega en tu hotel, Airbnb o playa.', tr: 'Traslados', trP: 'Aeropuerto, hoteles, paseos y eventos, en auto o van.', ver: 'Ver detalles ↓' },
+  pt: { motos: 'Motos', motosP: 'Motos para alugar, com entrega no local combinado.', bikes: 'Bikes elétricas', bikesP: 'Pedale pela orla do Rio com entrega no seu hotel, Airbnb ou praia.', tr: 'Transfers', trP: 'Aeroporto, hotéis, passeios e eventos, de carro ou van.', ver: 'Ver detalhes ↓' },
+  en: { motos: 'Scooters', motosP: 'Motorcyles for rent, delivered to the agreed location.', bikes: 'Electric bikes', bikesP: 'Ride the Rio seafront with delivery to your hotel, Airbnb or the beach.', tr: 'Transfers', trP: 'Airport, hotels, tours and events, by car or van.', ver: 'See details ↓' },
+  es: { motos: 'Scooters', motosP: 'Motos para alquilar, con entrega en el lugar acordado.', bikes: 'Bicis eléctricas', bikesP: 'Pedalea por la costanera de Río con entrega en tu hotel, Airbnb o playa.', tr: 'Traslados', trP: 'Aeropuerto, hoteles, paseos y eventos, en auto o van.', ver: 'Ver detalles ↓' },
   fr: { motos: 'Scooters', motosP: 'Scooters électriques à louer, livrées au lieu convenu.', bikes: 'Vélos électriques', bikesP: 'Pédalez le long du front de mer avec livraison à votre hôtel, Airbnb ou à la plage.', tr: 'Transferts', trP: 'Aéroport, hôtels, excursions et événements, en voiture ou en van.', ver: 'Voir les détails ↓' },
   de: { motos: 'Scooter', motosP: 'Elektro-Scooter zur Miete, mit Lieferung an den vereinbarten Ort.', bikes: 'E-Bikes', bikesP: 'Radeln Sie die Strandpromenade entlang, mit Lieferung zu Hotel, Airbnb oder Strand.', tr: 'Transfers', trP: 'Flughafen, Hotels, Ausflüge und Veranstaltungen, mit Auto oder Van.', ver: 'Details ansehen ↓' }
 };
@@ -351,19 +351,21 @@ function atualizarPaginaServicos() {
   set('t-bikes-t', T.bikesT); set('t-bikes-p', T.bikesP); set('t-bikes-b', T.bikesB); document.getElementById('t-bikes-b').href = WA + encodeURIComponent(T.waBikes);
   set('t-tr-t', T.trT); set('t-tr-p', T.trP); set('t-tr-carro', T.carro); set('t-tr-van', T.van); set('t-tr-b', T.trB); document.getElementById('t-tr-b').href = WA + encodeURIComponent(T.waTr);
 
-  // Footer (mantém o texto estático se não houver tradução)
-  (function () {
-    function trad(chave, el, prop) {
-      var t = getTexto(chave);
-      var node = document.getElementById(el);
-      if (node && t && t !== chave) node[prop] = t;
-    }
-    trad('footer.sobre', 'footer-sobre', 'textContent');
-    trad('footer.contato', 'footer-contato-titulo', 'textContent');
-    trad('footer.endereco', 'footer-endereco', 'innerHTML');
-  })();
-  document.getElementById('footer-whatsapp').textContent = '+55 21 97368-8693 (WhatsApp)';
-  document.getElementById('footer-email').textContent = 'turismocsc@casasaoconrado.com';
+  // Footer
+  set('footer-sobre', getTexto('footer.sobre'));
+  set('footer-explorar', getTexto('footer.explorar'));
+  set('footer-todos-passeios', getTexto('footer.todosPasseios'));
+  set('footer-blog', getTexto('footer.blog'));
+  set('footer-trilhas', getTexto('footer.trilhas'));
+  set('footer-praias', getTexto('footer.praias'));
+  set('footer-parceiros', getTexto('footer.parceiros'));
+  set('footer-seja-parceiro', getTexto('footer.sejaParceiro'));
+  set('footer-cadastrar-passeio', getTexto('footer.cadastrarPasseio'));
+  set('footer-contato', getTexto('footer.contato'));
+  set('footer-contato-titulo', getTexto('footer.contato'));
+  document.getElementById('footer-endereco').innerHTML = getTexto('footer.endereco');
+  set('footer-direitos', getTexto('footer.direitos'));
+  set('footer-cnpj', getTexto('footer.cnpj'));
 
   document.getElementById('page-title').textContent = T.title + ' — Brazil Xcursions';
   document.getElementById('meta-desc').content = T.sub;
