@@ -150,7 +150,7 @@
     <!-- Cards de categorias -->
     <div class="srv-cats">
       <a href="#bikes" class="srv-cat"><span class="srv-cat-ico"><img src="assets/bike.png" alt="Bike elétrica" loading="lazy"></span><h2 id="c-bikes-t"></h2><p id="c-bikes-p"></p><span class="srv-cat-ver" id="c-ver-b"></span></a>
-      <a href="#aluguel" class="srv-cat"><span class="srv-cat-ico"><img src="assets/moto.png" alt="Moto elétrica" loading="lazy"></span><h2 id="c-motos-t"></h2><p id="c-motos-p"></p><span class="srv-cat-ver" id="c-ver-m"></span></a>
+      <a href="#aluguel" class="srv-cat"><span class="srv-cat-ico"><img src="assets/moto.png" alt="Moto" loading="lazy"></span><h2 id="c-motos-t"></h2><p id="c-motos-p"></p><span class="srv-cat-ver" id="c-ver-m"></span></a>
       <a href="#transfers" class="srv-cat"><span class="srv-cat-ico"><img src="assets/van.png" alt="Van para transfer" loading="lazy"></span><h2 id="c-tr-t"></h2><p id="c-tr-p"></p><span class="srv-cat-ver" id="c-ver-t"></span></a>
     </div>
 
@@ -194,7 +194,7 @@
     <!-- MOTOS (cabeçalho + reserva) -->
     <div class="srv-card" id="aluguel">
       <div class="srv-bikes-head">
-        <div class="srv-ico"><img src="assets/moto.png" alt="Moto elétrica"></div>
+        <div class="srv-ico"><img src="assets/moto.png" alt="Moto"></div>
         <h2 id="t-motos-t"></h2>
         <p id="t-motos-p"></p>
       </div>
@@ -261,11 +261,11 @@ var tInterface = getTexto;
 
 var WA = 'https://wa.me/5521973688693?text=';
 var CARDS = {
-  pt: { motos: 'Motos', motosP: 'Motos para alugar, com entrega no local combinado. Diárias a partir de R$260, e caução de R$1.500, devolvidos após o aluguel.', bikes: 'Bikes elétricas', bikesP: 'Pedale pela orla do Rio com entrega no seu hotel, Airbnb ou praia.', tr: 'Transfers', trP: 'Aeroporto, hotéis, passeios e eventos, de carro ou van.', ver: 'Ver detalhes ↓' },
-  en: { motos: 'Scooters', motosP: 'Electric scooters for rent, delivered to the agreed location.', bikes: 'Electric bikes', bikesP: 'Ride the Rio seafront with delivery to your hotel, Airbnb or the beach.', tr: 'Transfers', trP: 'Airport, hotels, tours and events, by car or van.', ver: 'See details ↓' },
-  es: { motos: 'Scooters', motosP: 'Scooters eléctricas para alquilar, con entrega en el lugar acordado.', bikes: 'Bicis eléctricas', bikesP: 'Pedalea por la costanera de Río con entrega en tu hotel, Airbnb o playa.', tr: 'Traslados', trP: 'Aeropuerto, hoteles, paseos y eventos, en auto o van.', ver: 'Ver detalles ↓' },
-  fr: { motos: 'Scooters', motosP: 'Scooters électriques à louer, livrées au lieu convenu.', bikes: 'Vélos électriques', bikesP: 'Pédalez le long du front de mer avec livraison à votre hôtel, Airbnb ou à la plage.', tr: 'Transferts', trP: 'Aéroport, hôtels, excursions et événements, en voiture ou en van.', ver: 'Voir les détails ↓' },
-  de: { motos: 'Scooter', motosP: 'Elektro-Scooter zur Miete, mit Lieferung an den vereinbarten Ort.', bikes: 'E-Bikes', bikesP: 'Radeln Sie die Strandpromenade entlang, mit Lieferung zu Hotel, Airbnb oder Strand.', tr: 'Transfers', trP: 'Flughafen, Hotels, Ausflüge und Veranstaltungen, mit Auto oder Van.', ver: 'Details ansehen ↓' }
+  pt: { motos: 'Motos', motosP: 'Motos para alugar, com entrega no local combinado. Diárias a partir de R$260, e caução de R$1.500, devolvidos após o aluguel.', motosCard: 'Diárias, com entrega no local.', bikes: 'Bikes elétricas', bikesP: 'Pedale pela orla do Rio com entrega no seu hotel, Airbnb ou praia.', tr: 'Transfers', trP: 'Aeroporto, hotéis, passeios e eventos, de carro ou van.', ver: 'Ver detalhes ↓' },
+  en: { motos: 'Scooters', motosP: 'Motorcycles for rent, delivered to the agreed location.', motosCard: 'Daily rentals, delivered to your location.', bikes: 'Electric bikes', bikesP: 'Ride the Rio seafront with delivery to your hotel, Airbnb or the beach.', tr: 'Transfers', trP: 'Airport, hotels, tours and events, by car or van.', ver: 'See details ↓' },
+  es: { motos: 'Scooters', motosP: 'Motos para alquilar, con entrega en el lugar acordado.', motosCard: 'Alquiler por día, con entrega en el lugar.', bikes: 'Bicis eléctricas', bikesP: 'Pedalea por la costanera de Río con entrega en tu hotel, Airbnb o playa.', tr: 'Traslados', trP: 'Aeropuerto, hoteles, paseos y eventos, en auto o van.', ver: 'Ver detalles ↓' },
+  fr: { motos: 'Scooters', motosP: 'Motos à louer, livrées au lieu convenu.', motosCard: 'Location à la journée, livraison sur place.', bikes: 'Vélos électriques', bikesP: 'Pédalez le long du front de mer avec livraison à votre hôtel, Airbnb ou à la plage.', tr: 'Transferts', trP: 'Aéroport, hôtels, excursions et événements, en voiture ou en van.', ver: 'Voir les détails ↓' },
+  de: { motos: 'Scooter', motosP: 'Motorräder zur Miete, mit Lieferung an den vereinbarten Ort.', motosCard: 'Tagesmiete, mit Lieferung vor Ort.', bikes: 'E-Bikes', bikesP: 'Radeln Sie die Strandpromenade entlang, mit Lieferung zu Hotel, Airbnb oder Strand.', tr: 'Transfers', trP: 'Flughafen, Hotels, Ausflüge und Veranstaltungen, mit Auto oder Van.', ver: 'Details ansehen ↓' }
 };
 var SRV = {
   pt: {
@@ -346,7 +346,7 @@ function atualizarPaginaServicos() {
 
   set('hero-titulo', T.hero); set('t-voltar', T.voltar);
   var C = CARDS[lang] || CARDS.pt;
-  set('c-motos-t', C.motos); set('c-motos-p', C.motosP);
+  set('c-motos-t', C.motos); set('c-motos-p', C.motosCard);
   set('c-bikes-t', C.bikes); set('c-bikes-p', C.bikesP);
   set('c-tr-t', C.tr); set('c-tr-p', C.trP);
   set('c-ver-m', C.ver); set('c-ver-b', C.ver); set('c-ver-t', C.ver);
