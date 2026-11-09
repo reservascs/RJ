@@ -1945,9 +1945,4 @@ function getExpedicaoById(expId) {
   return null;
 }
 
-function pacotesDoSite() {
-  // Site do parceiro trata so do Rio: exclui categorias sem operacao aqui (ex.: natureza/Amazonia)
-  var EXCLUIR_CATEGORIAS = ['natureza'];
-  return PACOTES.filter(function(p){ return EXCLUIR_CATEGORIAS.indexOf(p.categoria) === -1; });
-}
 
