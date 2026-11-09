@@ -1881,7 +1881,7 @@ const PACOTES = [
     "titulo": "Pantanal Carioca - Ilha da Gigóia",
     "categoria": "praia/ilha",
     "tagline": "Fauna urbana no coração da Barra da Tijuca",
-    "descricao": "Cerca de 2 horas atráves de canais de lagoa de Jacarepaguá",
+    "descricao": "A Ilha da Gigóia aqui no Rio é um arquipélago com cerca de dez ilhas no começo da Barra, e lá você encontra uma atmosfera de paz e natureza.\nEsse passeio é ótimo pra ser feito com amigos, família e até mesmo com aquela pessoa especial.\nO Roteiro:\nVocê entra no barco e o guia começa o percurso por entre os canais, passando por restaurantes, vê a arquitetura das casas, avista os animais e no final você encontra o refúgio dos jacarés em seu habitat natural.\nVem você também conhecer a nossa Veneza Carioca!",
     "preco": "R$ 70,00",
     "duracao": "2 horas",
     "inclusos": [
