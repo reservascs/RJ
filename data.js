@@ -1873,7 +1873,7 @@ const PACOTES = [
 
   {
     "id": "pantanal-carioca-ilha-da-gigoia",
-    "linkPagamento": "",
+    "linkPagamento": "https://brazilxcursions.com/passeio/ilha-da-gigoia",
     "uf": "RJ",
     "videos": [
       "assets/passeios/pantanal-carioca-ilha-da-gigoia/pantanal-carioca-ilha-da-gigoia-video.mp4"
