@@ -15,8 +15,9 @@
   .form-field input,.form-field textarea{font-size:18.5px}
   #address,#whatsapp-label,#email-label{font-size:18.5px}
   .btn{font-size:17px}
-  .btn-voltar{display:inline-flex;align-items:center;gap:6px;color:var(--cor-texto-suave);text-decoration:none;font-size:18px;font-weight:600;padding:18px 0 4px}
-  .btn-voltar:hover{color:var(--cor-primaria)}
+  .btn-voltar{display:inline-flex;align-items:center;gap:6px;color:var(--cor-texto-suave);text-decoration:none;font-size:21px;font-weight:600;padding:16px 0 0}
+  .btn-voltar:hover{color:var(--cor-primaria);font-weight:800}
+  #contact-title{margin-top:0}
 </style>
 </head>
 <body>
@@ -61,12 +62,11 @@
   </div>
 </header>
 
-<div class="container"><a href="index.html" class="btn-voltar" id="link-voltar">← Voltar</a></div>
+<div class="container"><a href="index.html" class="btn-voltar" id="link-voltar">Voltar</a></div>
 
-<section style="padding-top:8px;">
+<section style="padding-top:0;">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow" id="contact-eyebrow">Fale com a gente</span>
       <h2 id="contact-title">Estamos aqui para ajudar</h2>
       <p id="contact-intro">Dúvidas sobre um passeio, sua reserva ou sugestões de roteiro? Escolha o canal que preferir.</p>
     </div>
@@ -123,11 +123,11 @@
 <script src="main.js"></script>
 <script>
 const CONTATO_TEXTOS = {
-  pt: { title:'Contato — Brazil Xcursions', voltar:'← Voltar', eyebrow:'Fale com a gente', heading:'Estamos aqui para ajudar', intro:'Dúvidas sobre um passeio, sua reserva ou sugestões de roteiro? Escolha o canal que preferir.', form:'✉️ Envie uma mensagem', name:'Nome', email:'E-mail', subject:'Assunto', subjectPlaceholder:'Ex: Dúvida sobre o Trekking Vale do Pati', message:'Mensagem', send:'Enviar mensagem', where:'📍 Onde estamos', whatsapp:'WhatsApp:', emailLabel:'E-mail:', whatsappButton:'💬 Conversar no WhatsApp', sent:'Mensagem enviada! Responderemos em breve. 🌴', rights:'© 2026 Brazil Xcursions. Todos os direitos reservados.' },
-  en: { title:'Contact — Brazil Xcursions', voltar:'← Back', eyebrow:'Get in touch', heading:'We are here to help', intro:'Questions about a tour, your booking, or itinerary suggestions? Choose the channel you prefer.', form:'✉️ Send us a message', name:'Name', email:'Email', subject:'Subject', subjectPlaceholder:'E.g.: Question about the Vale do Pati Trek', message:'Message', send:'Send message', where:'📍 Where we are', whatsapp:'WhatsApp:', emailLabel:'Email:', whatsappButton:'💬 Chat on WhatsApp', sent:'Message sent! We will reply shortly. 🌴', rights:'© 2026 Brazil Xcursions. All rights reserved.' },
-  es: { title:'Contacto — Brazil Xcursions', voltar:'← Volver', eyebrow:'Hable con nosotros', heading:'Estamos aquí para ayudar', intro:'¿Dudas sobre un paseo, su reserva o sugerencias de itinerario? Elija el canal que prefiera.', form:'✉️ Envíenos un mensaje', name:'Nombre', email:'Correo electrónico', subject:'Asunto', subjectPlaceholder:'Ej.: Duda sobre el trekking del Vale do Pati', message:'Mensaje', send:'Enviar mensaje', where:'📍 Dónde estamos', whatsapp:'WhatsApp:', emailLabel:'Correo electrónico:', whatsappButton:'💬 Hablar por WhatsApp', sent:'¡Mensaje enviado! Responderemos pronto. 🌴', rights:'© 2026 Brazil Xcursions. Todos los derechos reservados.' },
-  fr: { title:'Contact — Brazil Xcursions', voltar:'← Retour', eyebrow:'Contactez-nous', heading:'Nous sommes là pour vous aider', intro:'Une question sur une excursion, votre réservation ou une suggestion d’itinéraire ? Choisissez le canal qui vous convient.', form:'✉️ Envoyez-nous un message', name:'Nom', email:'E-mail', subject:'Objet', subjectPlaceholder:'Ex. : Question sur le trekking du Vale do Pati', message:'Message', send:'Envoyer le message', where:'📍 Où nous trouver', whatsapp:'WhatsApp :', emailLabel:'E-mail :', whatsappButton:'💬 Nous contacter sur WhatsApp', sent:'Message envoyé ! Nous vous répondrons bientôt. 🌴', rights:'© 2026 Brazil Xcursions. Tous droits réservés.' },
-  de: { title:'Kontakt — Brazil Xcursions', voltar:'← Zurück', eyebrow:'Kontaktieren Sie uns', heading:'Wir helfen Ihnen gerne', intro:'Fragen zu einem Ausflug, Ihrer Buchung oder Vorschläge für eine Reiseroute? Wählen Sie den Kontaktweg Ihrer Wahl.', form:'✉️ Nachricht senden', name:'Name', email:'E-Mail', subject:'Betreff', subjectPlaceholder:'Z. B.: Frage zur Trekkingtour im Vale do Pati', message:'Nachricht', send:'Nachricht senden', where:'📍 Wo Sie uns finden', whatsapp:'WhatsApp:', emailLabel:'E-Mail:', whatsappButton:'💬 Über WhatsApp chatten', sent:'Nachricht gesendet! Wir antworten Ihnen bald. 🌴', rights:'© 2026 Brazil Xcursions. Alle Rechte vorbehalten.' }
+  pt: { title:'Contato — Brazil Xcursions', voltar:'Voltar', heading:'Estamos aqui para ajudar', intro:'Dúvidas sobre um passeio, sua reserva ou sugestões de roteiro? Escolha o canal que preferir.', form:'✉️ Envie uma mensagem', name:'Nome', email:'E-mail', subject:'Assunto', subjectPlaceholder:'Ex: Dúvida sobre o Trekking Vale do Pati', message:'Mensagem', send:'Enviar mensagem', where:'📍 Onde estamos', whatsapp:'WhatsApp:', emailLabel:'E-mail:', whatsappButton:'💬 Conversar no WhatsApp', sent:'Mensagem enviada! Responderemos em breve. 🌴', rights:'© 2026 Brazil Xcursions. Todos os direitos reservados.' },
+  en: { title:'Contact — Brazil Xcursions', voltar:'Back', heading:'We are here to help', intro:'Questions about a tour, your booking, or itinerary suggestions? Choose the channel you prefer.', form:'✉️ Send us a message', name:'Name', email:'Email', subject:'Subject', subjectPlaceholder:'E.g.: Question about the Vale do Pati Trek', message:'Message', send:'Send message', where:'📍 Where we are', whatsapp:'WhatsApp:', emailLabel:'Email:', whatsappButton:'💬 Chat on WhatsApp', sent:'Message sent! We will reply shortly. 🌴', rights:'© 2026 Brazil Xcursions. All rights reserved.' },
+  es: { title:'Contacto — Brazil Xcursions', voltar:'Volver', heading:'Estamos aquí para ayudar', intro:'¿Dudas sobre un paseo, su reserva o sugerencias de itinerario? Elija el canal que prefiera.', form:'✉️ Envíenos un mensaje', name:'Nombre', email:'Correo electrónico', subject:'Asunto', subjectPlaceholder:'Ej.: Duda sobre el trekking del Vale do Pati', message:'Mensaje', send:'Enviar mensaje', where:'📍 Dónde estamos', whatsapp:'WhatsApp:', emailLabel:'Correo electrónico:', whatsappButton:'💬 Hablar por WhatsApp', sent:'¡Mensaje enviado! Responderemos pronto. 🌴', rights:'© 2026 Brazil Xcursions. Todos los derechos reservados.' },
+  fr: { title:'Contact — Brazil Xcursions', voltar:'Retour', heading:'Nous sommes là pour vous aider', intro:'Une question sur une excursion, votre réservation ou une suggestion d’itinéraire ? Choisissez le canal qui vous convient.', form:'✉️ Envoyez-nous un message', name:'Nom', email:'E-mail', subject:'Objet', subjectPlaceholder:'Ex. : Question sur le trekking du Vale do Pati', message:'Message', send:'Envoyer le message', where:'📍 Où nous trouver', whatsapp:'WhatsApp :', emailLabel:'E-mail :', whatsappButton:'💬 Nous contacter sur WhatsApp', sent:'Message envoyé ! Nous vous répondrons bientôt. 🌴', rights:'© 2026 Brazil Xcursions. Tous droits réservés.' },
+  de: { title:'Kontakt — Brazil Xcursions', voltar:'Zurück', heading:'Wir helfen Ihnen gerne', intro:'Fragen zu einem Ausflug, Ihrer Buchung oder Vorschläge für eine Reiseroute? Wählen Sie den Kontaktweg Ihrer Wahl.', form:'✉️ Nachricht senden', name:'Name', email:'E-Mail', subject:'Betreff', subjectPlaceholder:'Z. B.: Frage zur Trekkingtour im Vale do Pati', message:'Nachricht', send:'Nachricht senden', where:'📍 Wo Sie uns finden', whatsapp:'WhatsApp:', emailLabel:'E-Mail:', whatsappButton:'💬 Über WhatsApp chatten', sent:'Nachricht gesendet! Wir antworten Ihnen bald. 🌴', rights:'© 2026 Brazil Xcursions. Alle Rechte vorbehalten.' }
 };
 function setText(id, value) { document.getElementById(id).textContent = value; }
 function trocarIdioma(lang) {
@@ -135,7 +135,7 @@ function trocarIdioma(lang) {
   localStorage.setItem('idioma', lang);
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
   document.getElementById('page-title').textContent = t.title;
-  setText('link-voltar',t.voltar); setText('contact-eyebrow',t.eyebrow); setText('contact-title',t.heading); setText('contact-intro',t.intro); setText('form-title',t.form); setText('label-name',t.name); setText('label-email',t.email); setText('label-subject',t.subject); setText('label-message',t.message); setText('form-submit',t.send); setText('where-title',t.where); setText('whatsapp-label',t.whatsapp); setText('email-label',t.emailLabel); setText('whatsapp-button',t.whatsappButton); setText('footer-rights',t.rights);
+  setText('link-voltar',t.voltar); setText('contact-title',t.heading); setText('contact-intro',t.intro); setText('form-title',t.form); setText('label-name',t.name); setText('label-email',t.email); setText('label-subject',t.subject); setText('label-message',t.message); setText('form-submit',t.send); setText('where-title',t.where); setText('whatsapp-label',t.whatsapp); setText('email-label',t.emailLabel); setText('whatsapp-button',t.whatsappButton); setText('footer-rights',t.rights);
   document.getElementById('field-subject').placeholder = t.subjectPlaceholder;
   document.querySelectorAll('.lang-flag').forEach(b => b.style.display = b.dataset.lang === lang ? 'none' : '');
   document.getElementById('contato-form').dataset.sentMessage = t.sent;
