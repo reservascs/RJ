@@ -1890,7 +1890,8 @@ const PACOTES = [
     ],
     "imagens": [
       "assets/passeios/pantanal-carioca-ilha-da-gigoia/ilha_da_gigoia_by_diego_baravelli.jpg",
-      "assets/passeios/pantanal-carioca-ilha-da-gigoia/3840px-passeio_de_barco_na_ilha_da_gigoia.jpg"
+      "assets/passeios/pantanal-carioca-ilha-da-gigoia/3840px-passeio_de_barco_na_ilha_da_gigoia.jpg",
+      "assets/passeios/pantanal-carioca-ilha-da-gigoia/screenshot-968.jpg"
     ],
     "naoInclusos": [
       "refeições"
