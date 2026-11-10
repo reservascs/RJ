@@ -57,8 +57,26 @@
 </div>
 
 <header class="site-header">
-  <div class="nav-wrap nav-wrap--solo container">
-    <div class="chip-group pacote-chipnav" id="pacote-nav"></div>
+  <div class="nav-wrap container">
+    <a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="logo">
+      <img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img">
+    </a>
+    <nav class="main-nav">
+      <div class="nav-dd"><a href="index.html" id="nav-passeios">Passeios</a><div class="nav-dd-menu" id="nav-cats"></div></div>
+      <div class="nav-dd">
+        <a href="servicos.html" id="nav-servicos">Serviços</a>
+        <div class="nav-dd-menu" id="nav-servicos-menu">
+          <a href="servicos.html#bikes" id="sv-bicicleta">Aluguel de bicicleta</a>
+          <a href="servicos.html#aluguel" id="sv-moto">Aluguel de moto</a>
+          <a href="servicos.html#transfers" id="sv-transfers">Transfers</a>
+          <a href="servicos.html#massagem" id="sv-massagem">Massagem</a>
+        </div>
+      </div>
+      <a href="contato.html" id="nav-contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
   </div>
 </header>
 
@@ -228,6 +246,7 @@ function atualizarInterfaceFixa() {
   document.getElementById('topbar-whatsapp').textContent = tInterface('whatsapp');
   document.getElementById('topbar-email').textContent = tInterface('email');
 
+  if (typeof atualizarMenuPrincipal === 'function') atualizarMenuPrincipal();
   var pnav = document.getElementById('pacote-nav');
   if (pnav) {
     var itens = ['<a class="chip" href="index.html"><img class="chip-ic" src="assets/ic-todas.png" alt="">' + tInterface('menu.passeios') + '</a>'];
@@ -352,7 +371,6 @@ function carregarPacote() {
           '<h1>' + pacote.titulo + '</h1>' +
           '<p class="tagline">' + pacote.tagline + '</p>' +
         '</div>' +
-        '<a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="pacote-logo"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado"></a>' +
       '</div>' +
 
       galeriaHTML +

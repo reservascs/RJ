@@ -69,10 +69,26 @@
 </div>
 
 <header class="site-header">
-  <div class="nav-wrap nav-wrap--solo container">
+  <div class="nav-wrap container">
     <a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt" class="logo">
       <img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img">
     </a>
+    <nav class="main-nav">
+      <div class="nav-dd"><a href="index.html" id="nav-passeios">Passeios</a><div class="nav-dd-menu" id="nav-cats"></div></div>
+      <div class="nav-dd">
+        <a href="servicos.html" id="nav-servicos">Serviços</a>
+        <div class="nav-dd-menu" id="nav-servicos-menu">
+          <a href="servicos.html#bikes" id="sv-bicicleta">Aluguel de bicicleta</a>
+          <a href="servicos.html#aluguel" id="sv-moto">Aluguel de moto</a>
+          <a href="servicos.html#transfers" id="sv-transfers">Transfers</a>
+          <a href="servicos.html#massagem" id="sv-massagem">Massagem</a>
+        </div>
+      </div>
+      <a href="contato.html" id="nav-contato">Contato</a>
+    </nav>
+    <div class="header-actions">
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
   </div>
 </header>
 
@@ -346,6 +362,7 @@ function atualizarPaginaCatalogo() {
   document.getElementById('topbar-email').textContent = getTexto('email');
 
   // Menu
+  if (typeof atualizarMenuPrincipal === 'function') atualizarMenuPrincipal();
 
   // Hero
   document.getElementById('hero-titulo').textContent = getTexto('catalogo.titulo');
