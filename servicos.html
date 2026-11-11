@@ -20,8 +20,8 @@ footer.site-footer{margin-top:0 !important;}
 .srv-cat-ico{display:flex;align-items:center;justify-content:center;height:92px;margin:0 auto 12px;}
 .srv-cat-ico img{max-height:92px;max-width:100%;width:auto;height:auto;display:block;}
 .srv-cat h2{font-family:var(--fonte-titulo);font-style:italic;font-weight:600;font-size:24px;line-height:1.1;margin:0 0 8px;}
-.srv-cat p{font-size:14.5px;line-height:1.4;margin:0 0 14px;}
-.srv-cat-ver{margin-top:auto;font-weight:700;color:#1f4d3a;font-size:14px;}
+.srv-cat p{font-size:17.5px;line-height:1.4;margin:0 0 14px;}
+.srv-cat-ver{margin-top:auto;font-weight:700;color:#1f4d3a;font-size:17px;}
 .srv-ico img{height:70px;width:auto;display:block;margin:0 auto 6px;}
 .srv-card{max-width:760px;margin:0 auto 34px;background:#ffffff;border-radius:28px;padding:38px 34px 34px;position:relative;overflow:hidden;scroll-margin-top:150px;color:#1b1b1b;}
 .srv-card>*{position:relative;}
@@ -33,12 +33,12 @@ footer.site-footer{margin-top:0 !important;}
 .srv-circ{width:104px;height:104px;border-radius:50%;background:#e1ede4;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;}
 .srv-circ svg{width:52px;height:52px;}
 .srv-circ-img{width:68px;height:auto;display:block;mix-blend-mode:multiply;}
-.srv-passo p{font-size:15px;line-height:1.45;margin:0;}
+.srv-passo p{font-size:18px;line-height:1.45;margin:0;}
 .srv-sublinhado{display:block;width:70%;height:3px;border-radius:3px;background:#1f4d3a;margin:8px auto 0;}
 .srv-seta{color:#1f4d3a;font-size:28px;margin-top:34px;}
 .srv-atende{text-align:center;margin-bottom:34px;}
 .srv-marca{display:inline-flex;align-items:center;gap:8px;background:#e1ede4;padding:6px 26px;border-radius:6px;font-size:19px;margin-bottom:12px;}
-.srv-bairros{font-weight:800;font-size:20px;line-height:1.3;margin:0 0 4px;}
+.srv-bairros{font-weight:800;font-size:22px;line-height:1.3;margin:0 0 4px;}
 .srv-entrega{font-size:15.5px;margin:0;}
 .srv-baixo{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch;}
 .srv-promo-col{display:flex;flex-direction:column;justify-content:space-between;gap:10px;}
@@ -60,7 +60,7 @@ footer.site-footer{margin-top:0 !important;}
 .srv-card-simples{text-align:center;}
 .srv-ico{font-size:44px;margin-bottom:6px;}
 .srv-card-simples h2{font-family:var(--fonte-titulo);font-style:italic;font-size:32px;margin:0 0 10px;color:#1b1b1b;}
-.srv-card-simples p{font-size:17px;max-width:520px;margin:0 auto 18px;}
+.srv-card-simples p{font-size:20px;max-width:620px;margin:0 auto 18px;}
 .srv-veiculos{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
 .srv-veiculos span{background:#e1ede4;padding:8px 18px;border-radius:999px;font-weight:700;font-size:15px;}
 @media(max-width:980px){.srv-cats{grid-template-columns:repeat(2,1fr);}}
@@ -93,7 +93,7 @@ footer.site-footer{margin-top:0 !important;}
   .srv-bikes-head{text-align:center;margin-bottom:34px;}
   .srv-bikes-head .srv-ico img{height:70px;width:auto;display:block;margin:0 auto 6px;}
   .srv-bikes-head h2{font-family:var(--fonte-titulo);font-style:italic;font-weight:600;font-size:32px;margin:0 0 10px;color:#1b1b1b;}
-  .srv-bikes-head p{font-size:17px;max-width:520px;margin:0 auto;}
+  .srv-bikes-head p{font-size:20px;max-width:620px;margin:0 auto;}
   #t-bikes-p{max-width:none;}
   #massagem .srv-ico img{height:120px;max-width:100%;object-fit:contain;margin-bottom:10px;}
   .srv-aluguel .srv-como{font-size:clamp(22px,3.4vw,30px);margin:0 0 18px;}
@@ -382,11 +382,11 @@ var SRV = {
 };
 
 var MS = {
-  pt: { card: 'Massagem', cardP: 'Relaxe depois dos passeios.', t: 'Massagem', p: 'Massagem relaxante para recuperar o corpo depois de um dia de passeios. Consulte tipos, duração e valores e informe a data e o local para agendarmos.', b: 'Agendar pelo WhatsApp', wa: 'Olá! Quero agendar uma massagem.' },
-  en: { card: 'Massage', cardP: 'Unwind after your tours.', t: 'Massage', p: 'Relaxing massage to rest your body after a day of tours. Ask about types, duration and prices, and tell us the date and place so we can schedule it.', b: 'Book via WhatsApp', wa: 'Hi! I would like to book a massage.' },
-  es: { card: 'Masajes', cardP: 'Relájate después de los paseos.', t: 'Masajes', p: 'Masaje relajante para recuperar el cuerpo después de un día de paseos. Consulta tipos, duración y valores e indica la fecha y el lugar para agendarlo.', b: 'Agendar por WhatsApp', wa: '¡Hola! Quiero agendar un masaje.' },
-  fr: { card: 'Massage', cardP: 'Détendez-vous après les excursions.', t: 'Massage', p: 'Massage relaxant pour récupérer après une journée d’excursions. Renseignez-vous sur les types, la durée et les tarifs, et indiquez la date et le lieu pour planifier.', b: 'Réserver sur WhatsApp', wa: 'Bonjour ! Je voudrais réserver un massage.' },
-  de: { card: 'Massage', cardP: 'Entspannen nach den Ausflügen.', t: 'Massage', p: 'Entspannende Massage, um sich nach einem Tag voller Ausflüge zu erholen. Fragen Sie nach Arten, Dauer und Preisen und nennen Sie Datum und Ort, dann vereinbaren wir den Termin.', b: 'Per WhatsApp buchen', wa: 'Hallo! Ich möchte eine Massage buchen.' }
+  pt: { card: 'Massagem', cardP: 'Relaxe depois dos passeios.', t: 'Massagem', p: 'Massagem relaxante para recuperar o corpo depois de um dia de passeios. A partir de R$150 até 60 minutos. À domicílio na zona sul, ou na Casa São Conrado.', b: 'Agendar pelo WhatsApp', wa: 'Olá! Quero agendar uma massagem.' },
+  en: { card: 'Massage', cardP: 'Unwind after your tours.', t: 'Massage', p: 'Relaxing massage to rest your body after a day of tours. From R$150 for up to 60 minutes. At your place in the South Zone, or at Casa São Conrado.', b: 'Book via WhatsApp', wa: 'Hi! I would like to book a massage.' },
+  es: { card: 'Masajes', cardP: 'Relájate después de los paseos.', t: 'Masajes', p: 'Masaje relajante para recuperar el cuerpo después de un día de paseos. Desde R$150 por hasta 60 minutos. A domicilio en la Zona Sur, o en Casa São Conrado.', b: 'Agendar por WhatsApp', wa: '¡Hola! Quiero agendar un masaje.' },
+  fr: { card: 'Massage', cardP: 'Détendez-vous après les excursions.', t: 'Massage', p: 'Massage relaxant pour récupérer après une journée d’excursions. À partir de R$150 pour 60 minutes maximum. À domicile dans la Zone Sud, ou à la Casa São Conrado.', b: 'Réserver sur WhatsApp', wa: 'Bonjour ! Je voudrais réserver un massage.' },
+  de: { card: 'Massage', cardP: 'Entspannen nach den Ausflügen.', t: 'Massage', p: 'Entspannende Massage, um sich nach einem Tag voller Ausflüge zu erholen. Ab R$150 für bis zu 60 Minuten. Bei Ihnen zu Hause in der Zona Sul oder in der Casa São Conrado.', b: 'Per WhatsApp buchen', wa: 'Hallo! Ich möchte eine Massage buchen.' }
 };
 
 function atualizarPaginaServicos() {
