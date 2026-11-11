@@ -19,6 +19,33 @@
   .btn-voltar:hover{color:var(--cor-primaria);font-weight:800}
   #contact-title{margin-top:0}
 </style>
+<style id="ajuste-rodape-final">
+  .site-footer { padding-top: 19px !important; padding-bottom: 0 !important; }
+  .site-footer .footer-grid {
+    grid-template-columns: minmax(0, .85fr) minmax(480px, 1.5fr) !important;
+    gap: 18px !important; align-items: start;
+  }
+  .site-footer .footer-logo { margin: 0 !important; line-height: 0 !important; }
+  .site-footer .logo-img { max-height: 42px !important; width: auto !important; }
+  .site-footer #footer-sobre { margin: 3px 0 0 !important; line-height: 1.35 !important; }
+  .site-footer h4 { margin: -16px 0 3px !important; line-height: 1.1 !important; font-size: 1.12em !important; }
+  #footer-contato-titulo { text-decoration: none !important; }
+  #footer-contato-titulo:hover { text-decoration: underline !important; }
+  .site-footer .footer-bottom span { font-size: 12px !important; font-weight: 400 !important; font-family: inherit !important; }
+  .site-footer #footer-endereco, .site-footer #footer-whatsapp, .site-footer #footer-email { font-size: 1.06em !important; }
+  .site-footer ul { margin: 0 !important; padding: 0 !important; line-height: 1.25 !important; }
+  .site-footer li { margin: 0 0 2px !important; padding: 0 !important; }
+  .site-footer .footer-social-right { display: flex; justify-content: flex-end; margin: 0 0 3px !important; line-height: 0 !important; }
+  .site-footer .footer-social-right img { max-height: 24px !important; width: auto !important; }
+  .site-footer .footer-bottom { margin: 3px 0 0 !important; padding: 3px 0 0 !important; line-height: 1.2 !important; }
+  @media (max-width: 760px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .site-footer .footer-social-right { justify-content: flex-start; }
+  }
+
+  .pacote-card.srv-card-home .card-img svg{display:block;width:100%;height:100%;}
+  .pacote-card.srv-card-home .card-desc{-webkit-line-clamp:3;}
+</style>
 </head>
 <body>
 
@@ -109,9 +136,27 @@
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-bottom">
-      <span id="footer-rights">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
-      <span id="footer-cnpj">Protótipo de e-commerce — Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
+    <div class="footer-grid" style="grid-template-columns: .85fr 1.5fr; gap: 18px; align-items: start;">
+      <div>
+        <div class="footer-logo"><a href="https://www.casasaoconrado.com/guesthouse-rio-de-janeiro-pt"><img src="assets/logo-casasaoconrado.png" alt="Casa São Conrado" class="logo-img"></a></div>
+        <p id="footer-sobre">Sua base no Rio de Janeiro para viver experiências autênticas: praias, trilhas, aventura e cultura carioca, tudo em um só lugar.</p>
+      </div>
+      <div>
+        <div class="social-row footer-social-right">
+          <a href="https://www.instagram.com/casasaoconradorj/" target="_blank" rel="noopener" aria-label="Instagram"><img src="assets/insta.png" alt="Instagram"></a>
+          <a href="https://www.facebook.com/casasaoconradorj" target="_blank" rel="noopener" aria-label="Facebook"><img src="assets/face.png" alt="Facebook"></a>
+        </div>
+        <h4 style="margin:0 0 3px"><a id="footer-contato-titulo" href="contato.html" style="color:inherit;text-decoration:none">Contato</a></h4>
+        <ul>
+          <li id="footer-endereco">Rua Coronel Ribeiro Gomes, 328<br>São Conrado, Rio de Janeiro - RJ</li>
+          <li id="footer-whatsapp">+55 21 97368-8693 (WhatsApp)</li>
+          <li id="footer-email">turismocsc@casasaoconrado.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom" style="margin-top: 3px; padding-top: 3px; padding-bottom: 0;">
+      <span id="footer-direitos">© 2026 Brazil Xcursions. Todos os direitos reservados.</span>
+      <span id="footer-cnpj">Maxifor Serviços Empresariais Ltda. — CNPJ 08.575.101/0001-00</span>
     </div>
   </div>
 </footer>
@@ -135,10 +180,21 @@ function trocarIdioma(lang) {
   localStorage.setItem('idioma', lang);
   document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
   document.getElementById('page-title').textContent = t.title;
-  setText('link-voltar',t.voltar); setText('contact-title',t.heading); setText('contact-intro',t.intro); setText('form-title',t.form); setText('label-name',t.name); setText('label-email',t.email); setText('label-subject',t.subject); setText('label-message',t.message); setText('form-submit',t.send); setText('where-title',t.where); setText('whatsapp-label',t.whatsapp); setText('email-label',t.emailLabel); setText('whatsapp-button',t.whatsappButton); setText('footer-rights',t.rights);
+  setText('link-voltar',t.voltar); setText('contact-title',t.heading); setText('contact-intro',t.intro); setText('form-title',t.form); setText('label-name',t.name); setText('label-email',t.email); setText('label-subject',t.subject); setText('label-message',t.message); setText('form-submit',t.send); setText('where-title',t.where); setText('whatsapp-label',t.whatsapp); setText('email-label',t.emailLabel); setText('whatsapp-button',t.whatsappButton); setText('footer-direitos',t.rights);
   document.getElementById('field-subject').placeholder = t.subjectPlaceholder;
   document.querySelectorAll('.lang-flag').forEach(b => b.style.display = b.dataset.lang === lang ? 'none' : '');
   document.getElementById('contato-form').dataset.sentMessage = t.sent;
+  (function () {
+    function trad(chave, id, prop) {
+      var a = (typeof TRADUCOES_INTERFACE !== 'undefined' && TRADUCOES_INTERFACE) ? TRADUCOES_INTERFACE[lang] : null;
+      chave.split('.').forEach(function (k) { a = (a && a[k] !== undefined) ? a[k] : null; });
+      var el = document.getElementById(id);
+      if (el && a) el[prop] = a;
+    }
+    trad('footer.sobre', 'footer-sobre', 'textContent');
+    trad('footer.contato', 'footer-contato-titulo', 'textContent');
+    trad('footer.endereco', 'footer-endereco', 'innerHTML');
+  })();
   if (typeof atualizarMenuPrincipal === 'function') atualizarMenuPrincipal();
 }
 const idiomaSalvo = localStorage.getItem('idioma');
